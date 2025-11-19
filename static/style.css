@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+p {
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #005eff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: #0044c7;
+}
+
+.question-block {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #005eff;
+    background: #f7f9ff;
+    border-radius: 5px;
+}
+
+.option {
+    display: block;
+    margin: 8px 0;
+}
+
+.score-box {
+    background: #eaf3ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.score {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #005eff;
+}
+
+.percentage {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.correct {
+    color: #008000;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: #d10000;
+    font-weight: bold;
+}
+
+.explanation {
+    background: #fff8e1;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border-left: 4px solid #ffbe00;
+}

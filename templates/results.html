@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Resultados – DP-900 Practice Exam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #050c12;
+            color: #f9fafb;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 16px;
+        }
+
+        .results-container {
+            background: #050c12;
+            border-radius: 16px;
+            box-shadow: 0 14px 30px rgba(21, 34, 48, 0.6);
+            max-width: 1100px;
+            width: 100%;
+            padding: 24px 32px 32px;
+            box-sizing: border-box;
+        }
+
+        .results-header h1 {
+            margin: 0 0 4px 0;
+            font-size: 1.8rem;
+        }
+
+        .results-header p {
+            margin: 0;
+            color: #9ca3af;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .card {
+            border-radius: 14px;
+            padding: 16px 18px;
+            background: #020617;
+            border: 1px solid #1f2937;
+        }
+
+        .card-title {
+            font-size: .9rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .card-main {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .card-sub {
+            margin-top: 4px;
+            font-size: .9rem;
+            color: #9ca3af;
+        }
+
+        .card-status.aprobado {
+            color: #4ade80;
+        }
+
+        .card-status.reprobado {
+            color: #f97373;
+        }
+
+        .btn-row {
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 999px;
+            padding: 9px 18px;
+            font-size: .95rem;
+            cursor: pointer;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: #f9fafb;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #e5e7eb;
+            border: 1px solid #4b5563;
+        }
+
+        .btn-outline:hover {
+            background: #111827;
+        }
+
+        .details-title {
+            margin-top: 32px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .details-sub {
+            margin: 0 0 16px 0;
+            font-size: .9rem;
+            color: #9ca3af;
+        }
+
+        .question-detail {
+            margin-bottom: 14px;
+            border-radius: 12px;
+            padding: 12px 14px;
+            background: #020617;
+            border: 1px solid #111827;
+        }
+
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .q-title {
+            font-size: .95rem;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        .q-status {
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .q-status.correct {
+            color: #4ade80;
+        }
+
+        .q-status.incorrect {
+            color: #f97373;
+        }
+
+        .q-text {
+            font-size: .95rem;
+            margin-bottom: 6px;
+            color: #f9fafb;
+        }
+
+        .q-line {
+            font-size: .85rem;
+            color: #9ca3af;
+        }
+
+        .q-line span.label {
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .q-explanation {
+            margin-top: 6px;
+            font-size: .85rem;
+            color: #e5e7eb;
+        }
+
+        .q-divider {
+            margin: 10px 0;
+            border: 0;
+            border-top: 1px dashed #1f2937;
+        }
+
+        @media (max-width: 640px) {
+            .results-container {
+                padding: 16px 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="results-container">
+        <header class="results-header">
+            <h1>Resultados del simulador DP-900</h1>
+            <p>Resumen de tu intento con {{ total }} preguntas respondidas.</p>
+        </header>
+
+        <!-- RESUMEN PRINCIPAL -->
+        <section class="summary-cards">
+            <div class="card">
+                <div class="card-title">Preguntas correctas</div>
+                <div class="card-main">{{ correct_count }} / {{ total }}</div>
+                <div class="card-sub">
+                    Aciertos totales en este intento.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Nota (0–10)</div>
+                <div class="card-main">
+                    {{ "%.1f"|format(score_10) }}
+                </div>
+                <div class="card-sub">
+                    Escala equivalente: 10 puntos.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Porcentaje</div>
+                <div class="card-main">
+                    {{ "%.1f"|format(percentage) }}%
+                </div>
+                <div class="card-sub">
+                    Porcentaje de respuestas correctas.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Estado</div>
+                {% if score_10 >= 7.0 %}
+                    <div class="card-main card-status aprobado">APROBADO</div>
+                    <div class="card-sub">
+                        Excelente. Estás por encima del umbral típico del 70%.
+                    </div>
+                {% else %}
+                    <div class="card-main card-status reprobado">REQUIERE PRÁCTICA</div>
+                    <div class="card-sub">
+                        Repite el simulador y refuerza las preguntas falladas.
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- BOTONES DE ACCIÓN -->
+        <div class="btn-row">
+            <a href="{{ url_for('start') }}" class="btn btn-primary">
+                Repetir simulador
+            </a>
+
+            <a href="{{ url_for('quiz', index=1) }}" class="btn btn-outline">
+                Revisar desde la primera pregunta
+            </a>
+        </div>
+
+        <!-- DETALLE POR PREGUNTA -->
+        <h2 class="details-title">Revisión pregunta por pregunta</h2>
+        <p class="details-sub">
+            Aquí puedes ver qué respondiste, cuál era la respuesta correcta y la explicación
+            para cada pregunta. Úsalo como guía de estudio.
+        </p>
+
+        {% for d in detailed %}
+            {% set q = questions[loop.index0] %}
+            <article class="question-detail">
+                <div class="q-header">
+                    <div class="q-title">
+                        Pregunta {{ loop.index }} – ID {{ q["id"] }}
+                    </div>
+                    <div class="q-status {% if d.is_correct %}correct{% else %}incorrect{% endif %}">
+                        {% if d.is_correct %}
+                            ✓ Correcta
+                        {% else %}
+                            ✗ Incorrecta
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="q-text">
+                    {{ q["text"] }}
+                </div>
+
+                <div class="q-line">
+                    <span class="label">Tu respuesta:&nbsp;</span>
+                    {% if d.selected is not none %}
+                        {{ q["options"][d.selected] }}
+                    {% else %}
+                        No respondida
+                    {% endif %}
+                </div>
+
+                <div class="q-line">
+                    <span class="label">Respuesta correcta:&nbsp;</span>
+                    {{ q["options"][d.correct] }}
+                </div>
+
+                {% if d.explanation %}
+                    <hr class="q-divider" />
+                    <div class="q-explanation">
+                        <span class="label">Explicación:&nbsp;</span>
+                        {{ d.explanation }}
+                    </div>
+                {% endif %}
+            </article>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
