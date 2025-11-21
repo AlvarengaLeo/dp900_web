@@ -1187,7 +1187,19 @@
       ],
       "answer": 1,
       "explanation": "El enfoque schema-on-read permite guardar datos crudos sin esquema previo."
+    },
+    {
+      "id": 101,
+      "text": "Select two benefits of PaaS SQL databases.",
+      "is_multi": true,
+      "options": [
+        "Automatic backups",
+        "You manage the OS updates",
+        "Scales automatically",
+        "No monitoring included"
+      ],
+      "answers": [0, 2],
+      "explanation": "PaaS databases handle backups and scaling automatically."
     }
-
   ]
 }

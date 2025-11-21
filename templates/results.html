@@ -276,12 +276,11 @@
             para cada pregunta. Úsalo como guía de estudio.
         </p>
 
-        {% for d in detailed %}
-            {% set q = questions[loop.index0] %}
+        {% for d in questions %}
             <article class="question-detail">
                 <div class="q-header">
                     <div class="q-title">
-                        Pregunta {{ loop.index }} – ID {{ q["id"] }}
+                        Pregunta {{ loop.index }} – ID {{ d.id }}
                     </div>
                     <div class="q-status {% if d.is_correct %}correct{% else %}incorrect{% endif %}">
                         {% if d.is_correct %}
@@ -293,13 +292,21 @@
                 </div>
 
                 <div class="q-text">
-                    {{ q["text"] }}
+                    {{ d.text }}
                 </div>
 
                 <div class="q-line">
                     <span class="label">Tu respuesta:&nbsp;</span>
                     {% if d.selected is not none %}
-                        {{ q["options"][d.selected] }}
+                        {% if d.selected is iterable and d.selected is not string %}
+                            <ul>
+                            {% for sel in d.selected %}
+                                <li>{{ d.options[sel] }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{ d.options[d.selected] }}
+                        {% endif %}
                     {% else %}
                         No respondida
                     {% endif %}
@@ -307,7 +314,15 @@
 
                 <div class="q-line">
                     <span class="label">Respuesta correcta:&nbsp;</span>
-                    {{ q["options"][d.correct] }}
+                    {% if d.correct_answer is iterable and d.correct_answer is not string %}
+                        <ul>
+                        {% for corr in d.correct_answer %}
+                            <li>{{ d.options[corr] }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        {{ d.options[d.correct_answer] }}
+                    {% endif %}
                 </div>
 
                 {% if d.explanation %}

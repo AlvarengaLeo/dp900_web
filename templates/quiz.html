@@ -55,7 +55,6 @@
             height: 100%;
             border-radius: inherit;
             background: linear-gradient(90deg, #0ea5e9, #22c55e);
-            /* width se inyecta desde Flask */
             transition: width .25s ease-out;
         }
 
@@ -108,7 +107,8 @@
             transform: translateY(-1px);
         }
 
-        input[type="radio"] {
+        input[type="radio"],
+        input[type="checkbox"] {
             accent-color: #2563eb;
         }
 
@@ -203,6 +203,7 @@
         }
     </style>
 </head>
+
 <body>
 <div class="page">
     <div class="quiz-container">
@@ -210,45 +211,63 @@
             <h1>DP-900 Practice Exam</h1>
             <p>Question {{ index }} of {{ total }}</p>
 
-            <!-- Barra de progreso -->
             <div class="progress-bar">
                 <div class="progress-bar-inner" style="width: {{ progress }}%;"></div>
             </div>
         </header>
 
-        <!-- CONTENIDO PRINCIPAL -->
         <main>
             <section class="question-card">
                 <div class="question-number">Question {{ index }}</div>
-                <div class="question-text">
-                    {{ question.text }}
-                </div>
+                <div class="question-text">{{ question.text }}</div>
 
                 <form method="post" action="{{ url_for('quiz', index=index) }}">
                     <ul class="options">
-                        {% for opt in question.options %}
-                            <li class="option-item">
-                                <label class="option-label">
-                                    <input
-                                        type="radio"
-                                        name="answer"
-                                        value="{{ loop.index0 }}"
-                                        {% if selected is not none and selected == loop.index0 %}checked{% endif %}
-                                        {% if loop.first %}required{% endif %}
-                                    />
-                                    <span class="option-text">{{ opt }}</span>
-                                </label>
-                            </li>
-                        {% endfor %}
+
+                        {% if is_multi %}
+                            {# ================================
+                               MULTIPLE RESPUESTAS → CHECKBOXES
+                               ================================ #}
+                            {% for opt in question.options %}
+                                <li class="option-item">
+                                    <label class="option-label">
+                                        <input
+                                            type="checkbox"
+                                            name="answer"
+                                            value="{{ loop.index0 }}"
+                                            {% if selected is not none and loop.index0 in selected %}checked{% endif %}
+                                        />
+                                        <span class="option-text">{{ opt }}</span>
+                                    </label>
+                                </li>
+                            {% endfor %}
+
+                        {% else %}
+                            {# ================================
+                               UNA SOLA RESPUESTA → RADIOS
+                               ================================ #}
+                            {% for opt in question.options %}
+                                <li class="option-item">
+                                    <label class="option-label">
+                                        <input
+                                            type="radio"
+                                            name="answer"
+                                            value="{{ loop.index0 }}"
+                                            {% if selected is not none and selected == loop.index0 %}checked{% endif %}
+                                            {% if loop.first %}required{% endif %}
+                                        />
+                                        <span class="option-text">{{ opt }}</span>
+                                    </label>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
 
                     <div class="controls">
-                        <!-- Botón para comprobar respuesta -->
                         <button type="submit" name="action" value="check" class="btn btn-primary">
                             Check your answer
                         </button>
 
-                        <!-- Botón siguiente / finalizar según si es la última -->
                         {% if is_last %}
                             <button type="submit" name="action" value="finish" class="btn btn-outline">
                                 Finish exam
@@ -282,22 +301,30 @@
     </div>
 </div>
 
-<!-- Validación en el cliente: no permite enviar sin seleccionar opción -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
-
     if (!form) return;
 
     form.addEventListener("submit", function (e) {
-        const checked = form.querySelector('input[name="answer"]:checked');
+        const isMulti = {{ "true" if is_multi else "false" }};
 
-        if (!checked) {
-            e.preventDefault();
-            alert("Debes seleccionar una opción antes de continuar.");
+        if (isMulti) {
+            const checked = form.querySelectorAll('input[name="answer"]:checked');
+            if (checked.length === 0) {
+                e.preventDefault();
+                alert("Debes seleccionar al menos una opción.");
+            }
+        } else {
+            const checked = form.querySelector('input[name="answer"]:checked');
+            if (!checked) {
+                e.preventDefault();
+                alert("Debes seleccionar una opción antes de continuar.");
+            }
         }
     });
 });
 </script>
+
 </body>
 </html>

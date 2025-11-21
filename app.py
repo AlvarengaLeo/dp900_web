@@ -18,11 +18,33 @@ def load_questions():
 
 
 # =========================
+# Función para evaluar respuestas múltiples
+# =========================
+def is_answer_correct(selected, correct):
+    """
+    selected = lista de índices seleccionados por el usuario
+    correct  = int o lista de ints
+    """
+    if selected is None:
+        return False
+
+    # Convertir correct a lista si viene como entero
+    if isinstance(correct, int):
+        correct = [correct]
+
+    # Convertir selected a lista (viene como ints)
+    if isinstance(selected, int):
+        selected = [selected]
+
+    # Ordenar para evitar falsos negativos
+    return sorted(selected) == sorted(correct)
+
+
+# =========================
 # Ruta de inicio
 # =========================
 @app.route("/", methods=["GET"])
 def start():
-    # Cada vez que entras al inicio, reseteamos el estado del examen
     session.clear()
     questions = load_questions()
     total = len(questions)
@@ -30,53 +52,76 @@ def start():
 
 
 # =========================
-# Ruta del quiz (1 pregunta por página)
+# Ruta del quiz
 # =========================
 @app.route("/quiz/<int:index>", methods=["GET", "POST"])
 def quiz(index):
     questions = load_questions()
     total = len(questions)
 
-    # Si el índice está fuera de rango, redirigimos
     if index < 1:
         return redirect(url_for("quiz", index=1))
     if index > total:
         return redirect(url_for("results"))
 
-    # Inicializar estado en sesión si no existe
+    # Inicializar estructura de respuestas
     if "answers" not in session:
         session["answers"] = {
-            str(q["id"]): {"selected": None, "is_correct": None} for q in questions
+            str(q["id"]): {"selected": None, "is_correct": None}
+            for q in questions
         }
         session["score"] = 0
 
     current_q = questions[index - 1]
     qid = str(current_q["id"])
 
+    # Determinar si es multi-respuesta basado en el flag explícito o inferencia
+    is_multi = current_q.get("is_multi", False)
+    
+    # Obtener la respuesta correcta (lista o entero)
+    if is_multi:
+        correct_answer = current_q.get("answers", [])
+    else:
+        correct_answer = current_q.get("answer")
+
     feedback = None
     is_correct = None
 
     if request.method == "POST":
         action = request.form.get("action")
-        answer_str = request.form.get("answer")
 
-        # Aunque el HTML ya obliga a seleccionar, reforzamos en servidor
-        if answer_str is not None:
-            selected = int(answer_str)
-            correct_answer = current_q["answer"]
+        # MULTI-RESPUESTA → recibir lista
+        if is_multi:
+            selected_raw = request.form.getlist("answer")
+            selected = [int(x) for x in selected_raw] if selected_raw else []
+            # En multi, si no selecciona nada, selected es []
+            if not selected:
+                selected = None
+        else:
+            selected_raw = request.form.get("answer")
+            selected = int(selected_raw) if selected_raw is not None else None
 
+        if selected is None:
+            feedback = "Please select an answer."
+            is_correct = None
+        else:
             prev_state = session["answers"][qid]["is_correct"]
-            now_correct = (selected == correct_answer)
+            now_correct = is_answer_correct(selected, correct_answer)
 
             score = session.get("score", 0)
 
-            # Ajustar score si cambiaste de correcta->incorrecta o viceversa
+            # Ajuste inteligente del puntaje
+            # Si antes estaba bien y ahora mal, restamos
             if prev_state is True and not now_correct:
                 score -= 1
+            # Si antes no estaba bien (None o False) y ahora sí, sumamos
             elif prev_state is not True and now_correct:
                 score += 1
+            
+            # Nota: Si estaba mal y sigue mal, o bien y sigue bien, no cambia.
 
             session["score"] = score
+
             session["answers"][qid]["selected"] = selected
             session["answers"][qid]["is_correct"] = now_correct
 
@@ -87,16 +132,11 @@ def quiz(index):
                 feedback = "Incorrect. " + explanation
 
             is_correct = now_correct
-        else:
-            feedback = "Please select an answer."
-            is_correct = None
 
-        # Nota sobre 10
         score = session.get("score", 0)
         score_10 = (score / total) * 10 if total > 0 else 0
-        percentage_10 = score_10  # la variable se llama percentage en el template
 
-        # Acción según botón
+        # Botones
         if action == "check":
             return render_template(
                 "quiz.html",
@@ -106,14 +146,14 @@ def quiz(index):
                 progress=(index / total) * 100,
                 selected=session["answers"][qid]["selected"],
                 correct_count=score,
-                percentage=percentage_10,
+                percentage=score_10,
                 feedback=feedback,
                 is_correct=is_correct,
                 is_last=(index == total),
+                is_multi=is_multi,
             )
 
         elif action == "next":
-            # Si era la última, ir a resultados
             if index >= total:
                 return redirect(url_for("results"))
             return redirect(url_for("quiz", index=index + 1))
@@ -121,11 +161,10 @@ def quiz(index):
         elif action == "finish":
             return redirect(url_for("results"))
 
-    # GET normal (sin POST) → mostrar pregunta con selección previa (si existe)
+    # GET normal
     selected = session["answers"][qid]["selected"]
     score = session.get("score", 0)
     score_10 = (score / total) * 10 if total > 0 else 0
-    percentage_10 = score_10
 
     return render_template(
         "quiz.html",
@@ -135,15 +174,16 @@ def quiz(index):
         progress=(index / total) * 100,
         selected=selected,
         correct_count=score,
-        percentage=percentage_10,
+        percentage=score_10,
         feedback=None,
         is_correct=None,
         is_last=(index == total),
+        is_multi=is_multi,
     )
 
 
 # =========================
-# Ruta de resultados finales
+# Resultados finales
 # =========================
 @app.route("/results")
 def results():
@@ -157,6 +197,7 @@ def results():
     percentage = (score / total) * 100 if total > 0 else 0
 
     detailed = []
+
     for q in questions:
         qid = str(q["id"])
         ans = answers.get(qid, {"selected": None, "is_correct": None})
@@ -166,8 +207,8 @@ def results():
                 "id": q["id"],
                 "text": q["text"],
                 "options": q["options"],
-                "correct_index": q["answer"],
-                "selected_index": ans.get("selected"),
+                "correct_answer": q["answer"],
+                "selected": ans.get("selected"),
                 "is_correct": ans.get("is_correct"),
                 "explanation": q.get("explanation", ""),
             }
