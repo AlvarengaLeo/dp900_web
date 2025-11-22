@@ -1,0 +1,60 @@
+TASK 1:
+Debes corregir el problema donde, durante la revisión de una pregunta tipo HOTSPOT (Yes/No statements), las declaraciones no se están mostrando. Actualmente, en la vista de revisión, solo se muestran las respuestas del usuario, la respuesta correcta y el estado, pero no aparece el texto de cada declaración.
+
+Tu objetivo es:
+
+Hacer que en la vista de revisión de preguntas HOTSPOT se muestre correctamente el texto de cada declaración, tal como aparece durante el examen.
+
+Sin modificar ninguna otra sección del código que no esté relacionada con este problema.
+
+Sin alterar el funcionamiento del simulador, la lógica de examen, las categorías, la aleatorización, el JSON ni la vista de preguntas.
+
+Solo debes corregir la parte específica del renderizado de la revisión para que cada declaración se muestre correctamente.
+
+El resto del comportamiento, diseño y flujo del sistema debe permanecer intacto.
+
+No debes:
+
+Reescribir la estructura completa del archivo.
+
+Cambiar nombres existentes.
+
+Modificar lógicas que ya funcionan.
+
+Alterar otros tipos de preguntas.
+
+Introducir optimizaciones o mejoras adicionales.
+
+Tu tarea es únicamente corregir el problema donde el texto de cada declaración no aparece en la tabla de revisión de preguntas HOTSPOT.
+
+
+
+----------------------------
+TASK 2: 
+Debes corregir el problema donde, durante la presentación de una pregunta de tipo HOTSPOT (Yes/No statements), el texto de la pregunta se está mostrando dos veces: una versión principal y otra versión duplicada inmediatamente debajo. Esto genera un efecto de repetición innecesaria en pantalla.
+
+Tu tarea consiste únicamente en:
+
+Eliminar la duplicación del texto de la pregunta en el modo de evaluación de preguntas HOTSPOT, asegurando que la pregunta solo aparezca una vez.
+
+Mantener intacta toda la funcionalidad restante del simulador, incluyendo:
+
+El flujo normal del examen
+
+La aleatorización
+
+El renderizado de las opciones
+
+La lógica de corrección
+
+La revisión del examen
+
+La UI general
+
+No debes eliminar, modificar ni reestructurar ninguna otra parte del código, excepto la sección específica que genera la duplicación del texto.
+
+No debes alterar cómo se muestran las preguntas normales; solo debes corregir el problema visible en las preguntas HOTSPOT.
+
+No debes introducir cambios adicionales, mejoras ni refactorizaciones; únicamente resolver el problema de la duplicación del texto de la pregunta.
+
+El resultado final debe ser que, durante la evaluación de una pregunta HOTSPOT, solo se muestre una vez el texto de la pregunta, de forma clara y sin repeticiones.

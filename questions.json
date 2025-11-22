@@ -1,56 +1,1188 @@
 {
   "questions": [
     {
-      "id": 98,
-      "text": "Which file type is commonly used for big data batch ingestion due to its columnar compression?",
-      "options": [
-        "JSON",
-        "Parquet",
-        "XML",
-        "CSV"
-      ],
-      "answer": 1,
-      "explanation": "Parquet permite compresión eficiente y escaneo rápido en cargas analíticas."
-    },
-    {
-      "id": 99,
-      "text": "Which Azure service provides fully managed PostgreSQL as a platform as a service?",
-      "options": [
-        "Azure VM with PostgreSQL",
-        "Azure Database for PostgreSQL",
-        "Azure Cosmos DB",
-        "Azure Data Factory"
-      ],
-      "answer": 1,
-      "explanation": "Azure Database for PostgreSQL es la versión PaaS totalmente administrada."
-    },
-    {
-      "id": 100,
-      "text": "Which characteristic of data lakes allows storage of any type of data without predefined structure?",
-      "options": [
-        "Schema-on-write",
-        "Schema-on-read",
-        "ACID transactions",
-        "Strict relational rules"
-      ],
-      "answer": 1,
-      "explanation": "El enfoque schema-on-read permite guardar datos crudos sin esquema previo."
-    },
-    {
-      "id": 101,
-      "text": "Select two benefits of PaaS SQL databases.",
+      "id": 1,
+      "text": "What are two benefits of platform as a service (Paas) relational database offerings in Azure, such as Azure SQL Database?",
       "is_multi": true,
       "options": [
-        "Automatic backups",
-        "You manage the OS updates",
-        "Scales automatically",
-        "No monitoring included"
+        "access to the latest features",
+        "complete control over backup and restore processes",
+        "in-database machine learning services",
+        "reduced administrative effort for managing the server infrastructure"
       ],
       "answers": [
         0,
-        2
+        3
       ],
-      "explanation": "PaaS databases handle backups and scaling automatically."
+      "explanation": "Los servicios PaaS entregan nuevas características automáticamente y reducen el trabajo de administrar la infraestructura.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 2,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Azure Data Studio can be used to query an Azure SQL database from a device that runs macOS.",
+          "answer": true
+        },
+        {
+          "text": "Microsoft SQL Server Management Studio (SSMS) enables users to create and use SQL notebooks.",
+          "answer": false
+        },
+        {
+          "text": "Azure Data Studio can be used to restore a database.",
+          "answer": true
+        }
+      ],
+      "explanation": "Azure Data Studio es una herramienta multiplataforma que funciona en Windows, macOS y Linux y permite conectarse y consultar bases de datos Azure SQL. SSMS no permite crear notebooks; esta función existe en Azure Data Studio. Azure Data Studio también permite restaurar bases de datos.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 3,
+      "text": "Which statement is an example of Data Definition Language (DDL)?",
+      "options": [
+        "SELECT",
+        "JOIN",
+        "UPDATE",
+        "CREATE"
+      ],
+      "answer": 3,
+      "explanation": "DDL (Data Definition Language) se utiliza para definir estructuras de datos en la base de datos. CREATE es una instrucción DDL que permite crear objetos como tablas, vistas o esquemas.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 4,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "You must apply operating system updates to Azure SQL databases regularly.",
+          "answer": false
+        },
+        {
+          "text": "You need a Microsoft 365 subscription to create an Azure SQL database.",
+          "answer": false
+        },
+        {
+          "text": "You can use existing Microsoft SQL Server licenses to reduce the cost of Azure SQL databases.",
+          "answer": true
+        }
+      ],
+      "explanation": "Azure SQL Database is a PaaS service; Microsoft handles OS updates, so the customer does not apply them. You do not need a Microsoft 365 subscription to create an Azure SQL database. Azure Hybrid Benefit allows using existing SQL Server licenses with Software Assurance to reduce the cost of Azure SQL Database and Azure SQL Managed Instance.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 5,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "You can use Azure Data Studio to query a Microsoft SQL Server big data cluster.",
+          "answer": true
+        },
+        {
+          "text": "You can use Microsoft SQL Server Management Studio (SSMS) to query an Azure Synapse Analytics data warehouse.",
+          "answer": true
+        },
+        {
+          "text": "You can use MySQL Workbench to query Azure Database for MariaDB databases.",
+          "answer": true
+        }
+      ],
+      "explanation": "Azure Data Studio soporta conexiones a SQL Server Big Data Clusters. SSMS puede consultar un data warehouse de Azure Synapse Analytics. MySQL Workbench permite conectarse y consultar Azure Database for MariaDB.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 6,
+      "type": "hotspot_yes_no",
+      "text": "Select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Azure SQL Database includes a managed backup service.",
+          "answer": true
+        },
+        {
+          "text": "Azure SQL Database has built-in high availability.",
+          "answer": true
+        },
+        {
+          "text": "Azure SQL Database can use Azure Defender.",
+          "answer": true
+        }
+      ],
+      "explanation": "Azure SQL Database es un servicio PaaS completamente administrado que incluye backups automáticos, alta disponibilidad integrada y soporte para Azure Defender (Microsoft Defender for Cloud) para protección avanzada.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 7,
+      "text": "Which command-line tool can you use to query Azure SQL databases?",
+      "options": [
+        "sqlcmd",
+        "bcp",
+        "azdata",
+        "Azure CLI"
+      ],
+      "answer": 0,
+      "explanation": "The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt. The bcp tool is for bulk copy operations. Azure CLI is used for managing Azure resources, not for querying SQL.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 8,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Relational database tables contain columns and rows.",
+          "answer": true
+        },
+        {
+          "text": "Indexes in a relational database describe the data types in a table.",
+          "answer": false
+        },
+        {
+          "text": "A database view is a virtual table whose content is defined by a query.",
+          "answer": true
+        }
+      ],
+      "explanation": "Las tablas contienen filas y columnas; los índices se usan para acelerar consultas, no para definir tipos; y las vistas son tablas virtuales basadas en consultas.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 9,
+      "text": "You have an Azure SQL database that you access directly from the Internet. You recently changed the public IP address of your computer. After changing the IP address, you can no longer access the database. You can connect to other resources in Azure. What is a possible cause of the issue?",
+      "options": [
+        "role-based access control (RBAC)",
+        "Dynamic Host Configuration Protocol (DHCP)",
+        "Domain Name Service (DNS)",
+        "a database-level firewall"
+      ],
+      "answer": 3,
+      "explanation": "Azure SQL Database uses firewall rules at the server or database level to restrict which public IP addresses can connect. When your IP address changes, access is blocked until the new IP is added to the firewall rules.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 10,
+      "text": "When can you use an Azure Resource Manager template?",
+      "options": [
+        "to automate the creation of an interdependent group of Azure resources in a repeatable way",
+        "to apply Azure policies for multi-tenant deployments",
+        "to provision Azure subscriptions",
+        "to control which services and feature administrators and developers can deploy from the Azure portal"
+      ],
+      "answer": 0,
+      "explanation": "Azure Resource Manager templates permiten automatizar despliegues repetibles de recursos en Azure usando infraestructura como código. En el archivo JSON declaras los recursos a implementar sin necesidad de escribir comandos imperativos.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 11,
+      "text": "You have an e-commerce application that reads and writes data to an Azure SQL database. Which type of processing does the application use?",
+      "options": [
+        "stream processing",
+        "batch processing",
+        "Online Analytical Processing (OLAP)",
+        "Online Transaction Processing (OLTP)"
+      ],
+      "answer": 3,
+      "explanation": "Las aplicaciones transaccionales como e-commerce usan OLTP para registrar operaciones en tiempo real.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 12,
+      "text": "You are writing a set of SQL queries that administrators will use to troubleshoot an Azure SQL database. You need to embed documents and query results into a SQL notebook. What should you use?",
+      "options": [
+        "Microsoft SQL Server Management Studio (SSMS)",
+        "Azure Data Studio",
+        "Azure CLI",
+        "Azure PowerShell"
+      ],
+      "answer": 1,
+      "explanation": "Azure Data Studio permite crear y usar SQL Notebooks que combinan markdown, código SQL y resultados en un mismo documento, facilitando tareas de diagnóstico y documentación.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 13,
+      "text": "Your company needs to implement a relational database in Azure. The solution must minimize ongoing maintenance. Which Azure service should you use?",
+      "options": [
+        "Azure HDInsight",
+        "Azure SQL Database",
+        "Azure Cosmos DB",
+        "SQL Server on Azure Virtual Machines"
+      ],
+      "answer": 1,
+      "explanation": "Azure SQL Database es un servicio PaaS completamente administrado que reduce el mantenimiento continuo al encargarse automáticamente de parches, actualizaciones y administración de infraestructura.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 14,
+      "text": "Which type of database contains nodes and edges?",
+      "options": [
+        "graph",
+        "key/value",
+        "columnar",
+        "time series"
+      ],
+      "answer": 0,
+      "explanation": "A graph database stores two types of information: nodes and edges. Edges specify relationships between nodes, y ambos pueden tener propiedades.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 15,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Normalizing a database increases the throughput of writing transactions.",
+          "answer": false
+        },
+        {
+          "text": "Analytics systems are more normalized than transactional systems.",
+          "answer": false
+        },
+        {
+          "text": "Normalizing a database results in queries that require more joins.",
+          "answer": true
+        }
+      ],
+      "explanation": "Normalization reduces redundancy and improves consistency but does not increase write throughput. Analytics systems are usually denormalized. Normalized systems require more joins because data is split across multiple tables.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 16,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "A job that processes sales data once daily is an example of a batch workload.",
+          "answer": true
+        },
+        {
+          "text": "A job that calculates a rolling average temperature reading is an example of a streaming workload.",
+          "answer": true
+        },
+        {
+          "text": "A job that calculates average revenue per product for the last month is an example of a streaming workload.",
+          "answer": false
+        }
+      ],
+      "explanation": "Batch workloads procesan grandes volúmenes de datos en intervalos definidos, como cálculos diarios. Streaming workloads procesan datos en tiempo real y de manera continua. Calcular promedios mensuales es un proceso batch, no streaming.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 17,
+      "text": "Which SQL statement components are examples of aggregate functions?",
+      "options": [
+        "FROM and WHERE",
+        "GROUP BY and ORDER BY",
+        "JOIN and MERGE",
+        "MAX and MIN"
+      ],
+      "answer": 3,
+      "explanation": "Aggregate functions perform calculations on a set of values and return a single value. Examples include MAX and MIN, AVG, SUM, COUNT, and others.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 18,
+      "text": "What is a characteristic of batch processing?",
+      "options": [
+        "The data ingested during batch processing must be processed as soon as the data is received.",
+        "Large datasets must be split into batches of less than 1 GB before the data can be processed.",
+        "There is a noticeable time delay between ingesting data and obtaining the data processing results.",
+        "Batch processing can only process data that is structured."
+      ],
+      "answer": 2,
+      "explanation": "Batch processing introduces latency between data ingestion and obtaining results. It can process both structured and unstructured data.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 19,
+      "text": "A chart of colored rectangles. The size of the rectangles represents the relative value of each item. The chart can be hierarchical, displaying data as a set of rectangles nested within the main rectangle. What kind of chart is this?",
+      "options": [
+        "line chart",
+        "matrix",
+        "scatter",
+        "treemap"
+      ],
+      "answer": 3,
+      "explanation": "A treemap chart displays hierarchical data using nested rectangles. The size of each rectangle represents the value of each item relative to the whole.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 20,
+      "text": "Which storage solution supports access control lists (ACLs) at the file and folder level?",
+      "options": [
+        "Azure Data Lake Storage",
+        "Azure Queue storage",
+        "Azure Blob storage",
+        "Azure Cosmos DB"
+      ],
+      "answer": 0,
+      "explanation": "Azure Data Lake Storage Gen2 soporta un modelo de control de acceso que incluye Azure RBAC y ACLs de estilo POSIX, permitiendo definir permisos a nivel de archivo y carpeta.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 21,
+      "text": "Which type of database is Azure Database for PostgreSQL?",
+      "options": [
+        "Platform as a service (PaaS)",
+        "Infrastructure as a service (IaaS)",
+        "Microsoft SQL Server",
+        "on-premises"
+      ],
+      "answer": 0,
+      "explanation": "Azure Database for PostgreSQL es un servicio administrado que opera bajo el modelo Platform as a Service (PaaS), ofreciendo administración automática de tareas como parches, backups y alta disponibilidad.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 22,
+      "text": "Why did sales increase last month?",
+      "options": [
+        "To predict future sales trends.",
+        "To determine why sales increased during the previous period.",
+        "To identify actions to improve future outcomes.",
+        "To describe what might happen in the next month."
+      ],
+      "answer": 1,
+      "explanation": "Esta pregunta corresponde a análisis descriptivo, ya que busca explicar por qué ocurrió un resultado pasado utilizando datos históricos.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 23,
+      "text": "Provide specific guidance on how to allocate current budget to buy different inventory items.",
+      "options": [
+        "Descriptive analytics",
+        "Diagnostic analytics",
+        "Predictive analytics",
+        "Prescriptive analytics",
+        "Cognitive analytics"
+      ],
+      "answer": 3,
+      "explanation": "La analítica prescriptiva proporciona recomendaciones específicas sobre qué acciones tomar, incluyendo cómo asignar presupuestos o recursos para lograr mejores resultados.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 24,
+      "text": "Detect images of the company's logo included in PDF documents.",
+      "options": [
+        "Descriptive analytics",
+        "Diagnostic analytics",
+        "Predictive analytics",
+        "Prescriptive analytics",
+        "Cognitive analytics"
+      ],
+      "answer": 4,
+      "explanation": "Esta tarea requiere que un sistema interprete contenido visual dentro de documentos PDF y reconozca imágenes específicas, como el logotipo de una empresa. Esa capacidad implica comprensión semántica y procesamiento avanzado mediante modelos de inteligencia artificial, lo cual corresponde a la analítica cognitiva.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 25,
+      "text": "A block of code that runs in a database is called?",
+      "options": [
+        "a stored procedure",
+        "a table",
+        "a view",
+        "an index"
+      ],
+      "answer": 0,
+      "explanation": "Una stored procedure es un bloque de código que se ejecuta dentro de la base de datos. Puede contener consultas, lógica de control y operaciones complejas, y se ejecuta directamente desde el motor SQL.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 26,
+      "text": "Physically sorts the data in a table based on the values in a specified column.",
+      "options": [
+        "A view",
+        "A clustered index",
+        "A stored procedure",
+        "A nonclustered index"
+      ],
+      "answer": 1,
+      "explanation": "Un índice clustered (índice agrupado) organiza físicamente los datos de la tabla según los valores de una columna especificada. Por eso solo puede existir uno por tabla.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 27,
+      "text": "PostgreSQL on Azure VMs:",
+      "options": [
+        "Infrastructure as a service (IaaS)",
+        "Platform as a service (PaaS)",
+        "Software as a service (SaaS)"
+      ],
+      "answer": 0,
+      "explanation": "Cuando PostgreSQL se ejecuta en Azure Virtual Machines, la administración del sistema operativo, parches, configuración y mantenimiento queda a cargo del usuario. Esto representa un modelo de Infrastructure as a Service (IaaS), ya que Azure únicamente provee la infraestructura, no el servicio administrado.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 28,
+      "text": "Azure Database for PostgreSQL:",
+      "options": [
+        "Infrastructure as a service (IaaS)",
+        "Platform as a service (PaaS)",
+        "Software as a service (SaaS)"
+      ],
+      "answer": 1,
+      "explanation": "Azure Database for PostgreSQL es un servicio totalmente administrado en la nube, por lo que se clasifica como plataforma como servicio (PaaS). Microsoft se encarga de la infraestructura, actualizaciones, parches, alta disponibilidad y mantenimiento.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 29,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Extract, transform, and load (ETL) can reduce the transfer of sensitive data to destination systems.",
+          "answer": true
+        },
+        {
+          "text": "Extract, load, and transform (ELT) transforms data by using a compute resource independent of the source system and destination system.",
+          "answer": false
+        },
+        {
+          "text": "Extract, load, and transform (ELT) minimizes the time it takes to copy large volumes of data to destination systems.",
+          "answer": true
+        }
+      ],
+      "explanation": "ETL procesa los datos antes de cargarlos en el sistema destino, lo que permite filtrar o depurar datos sensibles antes de enviarlos. ELT no usa un recurso de cómputo independiente; las transformaciones ocurren dentro del sistema destino. ELT está optimizado para mover grandes volúmenes de datos rápidamente porque primero carga y luego transforma.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 30,
+      "text": "You need to modify a view in a relational database by adding a new column. Which statement should you use?",
+      "options": [
+        "MERGE",
+        "ALTER",
+        "INSERT",
+        "UPDATE"
+      ],
+      "answer": 1,
+      "explanation": "La instrucción ALTER se utiliza para modificar objetos existentes en la base de datos, como tablas o vistas. Permite agregar, modificar o eliminar columnas de una vista ya creada.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 31,
+      "text": "The Azure Cosmos DB ___ API enables the use of SELECT statements to retrieve documents from Azure Cosmos DB.",
+      "options": [
+        "Core (SQL)",
+        "Gremlin",
+        "MongoDB",
+        "Table"
+      ],
+      "answer": 0,
+      "explanation": "El API Core (SQL) de Azure Cosmos DB permite el uso de sentencias SELECT para consultar documentos mediante un modelo similar a SQL. Las demás APIs utilizan otros lenguajes o modelos de consulta.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 32,
+      "type": "single_choice",
+      "text": "You need to create an Azure resource to store data in Azure Table storage. Which command should you run?",
+      "options": [
+        "az storage share create",
+        "az storage account create",
+        "az cosmosdb create",
+        "az storage container create"
+      ],
+      "answer": 1,
+      "explanation": "Azure Table Storage forma parte de una cuenta de almacenamiento. Para poder crear tablas, primero se debe crear una cuenta de almacenamiento con el comando 'az storage account create'.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 33,
+      "text": "An extract, load, and transform (ELT) process requires:",
+      "options": [
+        "a separate transformation engine.",
+        "a target data store powerful enough to transform data.",
+        "data that is fully processed before being loaded to the target data store.",
+        "a data pipeline that includes a transformation engine."
+      ],
+      "answer": 1,
+      "explanation": "El proceso ELT carga primero los datos en el sistema de destino y luego realiza las transformaciones dentro del mismo. Por eso requiere que el almacén de datos tenga suficiente capacidad de cómputo para ejecutar las transformaciones internamente.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 34,
+      "text": "A visualization that illustrates a university's current student enrollment per department is an example of which type of analytics?",
+      "options": [
+        "Cognitive analytics",
+        "Descriptive analytics",
+        "Predictive analytics",
+        "Prescriptive analytics",
+        "Diagnostic analytics"
+      ],
+      "answer": 1,
+      "explanation": "Una visualización que muestra el estado actual de los datos, como la cantidad de estudiantes inscritos por departamento, corresponde a analítica descriptiva, ya que describe lo que está ocurriendo en el presente utilizando datos históricos o actuales.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 35,
+      "text": "Creating closed caption text for audio files is an example of _____ analytics.",
+      "options": [
+        "Descriptive analytics",
+        "Diagnostic analytics",
+        "Predictive analytics",
+        "Prescriptive analytics",
+        "Cognitive analytics"
+      ],
+      "answer": 4,
+      "explanation": "Crear subtítulos a partir de archivos de audio implica interpretar lenguaje hablado y convertirlo en texto mediante modelos de inteligencia artificial. Este proceso requiere capacidades cognitivas como reconocimiento de voz y comprensión del lenguaje, por lo que pertenece a la analítica cognitiva.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 36,
+      "text": "Which statement is an example of Data Manipulation Language (DML)?",
+      "options": [
+        "REVOKE",
+        "DISABLE",
+        "CREATE",
+        "UPDATE"
+      ],
+      "answer": 3,
+      "explanation": "Las sentencias DML modifican los datos almacenados en la base de datos. UPDATE forma parte de DML porque permite cambiar los valores de las filas.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 37,
+      "text": "What are two characteristics of real-time data processing?",
+      "is_multi": true,
+      "options": [
+        "Data is processed periodically",
+        "Low latency is expected",
+        "High latency is acceptable",
+        "Data is processed as it is created"
+      ],
+      "answers": [
+        1,
+        3
+      ],
+      "explanation": "El procesamiento en tiempo real se caracteriza por manejar datos en el momento en que se generan y operar con latencias muy bajas para producir resultados inmediatos.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 38,
+      "text": "Which statement is an example of Data Manipulation Language (DML)?",
+      "options": [
+        "REVOKE",
+        "DISABLE",
+        "INSERT",
+        "GRANT"
+      ],
+      "answer": 2,
+      "explanation": "Las sentencias DML modifican los datos almacenados en la base de datos. \"INSERT\" es una instrucción DML utilizada para agregar nuevas filas a una tabla.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 39,
+      "type": "hotspot_yes_no",
+      "text": "Evaluate the following statements about Platform as a Service (PaaS) database offerings in Azure. Select Yes if the statement is true; otherwise, select No.",
+      "statements": [
+        {
+          "text": "Platform as a service (PaaS) database offerings in Azure require less setup and configuration effort than infrastructure as a service (IaaS) database offerings.",
+          "answer": true
+        },
+        {
+          "text": "Platform as a service (PaaS) database offerings in Azure provide end users with the ability to control and update the operating system version.",
+          "answer": false
+        },
+        {
+          "text": "All relational and non-relational platform as a service (PaaS) database offerings in Azure can be paused to reduce costs.",
+          "answer": false
+        }
+      ],
+      "explanation": "Los servicios PaaS requieren menos configuración que IaaS porque la plataforma administra automáticamente la infraestructura, el sistema operativo, los parches y la mayoría del mantenimiento. Sin embargo, los usuarios no pueden controlar ni actualizar el sistema operativo, ya que esto es responsabilidad del proveedor. Además, no todos los servicios PaaS admiten la capacidad de pausar para reducir costos.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 40,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements about batch processing, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Batch processing can output data to a file store.",
+          "answer": true
+        },
+        {
+          "text": "Batch processing can output data to a relational database.",
+          "answer": true
+        },
+        {
+          "text": "Batch processing can output data to a NoSQL database.",
+          "answer": true
+        }
+      ],
+      "explanation": "El procesamiento por lotes puede enviar resultados a distintos tipos de destinos, incluyendo almacenes de archivos, bases de datos relacionales y bases de datos NoSQL. Esto se debe a que el procesamiento por lotes produce resultados en bloques que pueden escribirse en múltiples sistemas de almacenamiento.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 41,
+      "text": "The massively parallel processing (MPP) engine of Azure Synapse Analytics:",
+      "options": [
+        "distributes processing across compute nodes",
+        "distributes processing across control nodes",
+        "redirects client connections across compute nodes",
+        "redirects client connections across control nodes"
+      ],
+      "answer": 0,
+      "explanation": "El motor MPP divide el procesamiento en múltiples nodos de cómputo para ejecutar consultas en paralelo y obtener alto rendimiento en grandes volúmenes de datos.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 42,
+      "text": "Which people are mentioned in a company's business documents?",
+      "options": [
+        "Cognitive analytics",
+        "Diagnostic analytics",
+        "Descriptive analytics",
+        "Predictive analytics",
+        "Prescriptive analytics"
+      ],
+      "answer": 2,
+      "explanation": "La analítica descriptiva se utiliza para identificar qué información existe en los datos, incluyendo personas mencionadas en documentos de la empresa. Describe lo que ocurrió y lo que está presente en los datos.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 43,
+      "text": "Transcribing audio files is an example of what type of analytics?",
+      "options": [
+        "Cognitive analytics",
+        "Descriptive analytics",
+        "Predictive analytics",
+        "Prescriptive analytics"
+      ],
+      "answer": 0,
+      "explanation": "La transcripción de archivos de audio implica interpretar contenido no estructurado mediante modelos inteligentes capaces de convertir audio en texto. Este proceso requiere capacidades cognitivas, no solo el análisis de datos históricos.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 44,
+      "text": "In batch processing, which statement is correct?",
+      "options": [
+        "data is always inserted one row at a time.",
+        "data is processed in real-time.",
+        "latency in delivering data processing results is acceptable.",
+        "processing can only execute serially."
+      ],
+      "answer": 2,
+      "explanation": "En el procesamiento por lotes, la latencia es aceptable porque los datos no se procesan en tiempo real, sino en bloques acumulados.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 45,
+      "text": "In an extract, transform, and load (ETL) process, what is required?",
+      "options": [
+        "a matching schema in the data source and the data target",
+        "a target data store powerful enough to transform data",
+        "data that is fully processed before being loaded to the target data store",
+        "that the data target be a relational database"
+      ],
+      "answer": 2,
+      "explanation": "En un proceso ETL, los datos se transforman completamente antes de cargarse al almacén de destino. Esto implica que el procesamiento ocurre antes de la carga, a diferencia del enfoque ELT.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 46,
+      "type": "hotspot_yes_no",
+      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Normalization involves eliminating relationships between database tables.",
+          "answer": false
+        },
+        {
+          "text": "Normalizing a database reduces data redundancy.",
+          "answer": true
+        },
+        {
+          "text": "Normalization improves data integrity.",
+          "answer": true
+        }
+      ],
+      "explanation": "La normalización consiste en organizar los datos en una base de datos creando tablas y relaciones para eliminar redundancia e inconsistencias. No elimina relaciones; las define correctamente. Normalizar reduce la redundancia y mejora la integridad de los datos.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 47,
+      "text": "Descriptive analytics tells you",
+      "options": [
+        "what is most likely to occur in the future.",
+        "what occurred in the past.",
+        "which actions you can perform to affect outcomes.",
+        "why something occurred in the past."
+      ],
+      "answer": 1,
+      "explanation": "La analítica descriptiva se enfoca en describir y resumir lo que ya ocurrió en el pasado utilizando datos históricos.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 48,
+      "text": "An online analytical processing (OLAP) model stores ______ data that is optimized for analytical workloads.",
+      "options": [
+        "aggregated",
+        "normalized",
+        "semi-structured",
+        "unstructured"
+      ],
+      "answer": 0,
+      "explanation": "Los modelos OLAP almacenan datos agregados que están optimizados para cargas analíticas, permitiendo cálculos rápidos, consultas multidimensionales y resúmenes eficientes.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 49,
+      "text": "In a fully denormalized database, how is data read and written for a single entity?",
+      "options": [
+        "Data is read from a single table and written to a single table.",
+        "Data is read from multiple tables and written to a single table.",
+        "Data is read from a single table and written to multiple tables.",
+        "Data is read from multiple tables and written to multiple tables."
+      ],
+      "answer": 0,
+      "explanation": "En una base de datos completamente desnormalizada, todos los datos relacionados con una entidad se almacenan en una sola tabla. Esto significa que tanto la lectura como la escritura se realizan directamente sobre esa única tabla, eliminando la necesidad de uniones (JOIN) y reduciendo la complejidad de acceso.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 50,
+      "type": "single",
+      "text": "In an analytical model, any point where the dimensions intersect represents:",
+      "options": [
+        "a cube.",
+        "an aggregated dimension.",
+        "an aggregated measure."
+      ],
+      "answer": 2,
+      "explanation": "En un modelo analítico, cada punto donde se cruzan las dimensiones representa una medida agregada, ya que combina los valores numéricos calculados según los niveles de agregación definidos.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 51,
+      "type": "single_choice",
+      "text": "The pipeline engine used in Azure Data Factory is also available in",
+      "options": [
+        "Azure Databricks.",
+        "Azure HDInsight.",
+        "Azure SQL Database.",
+        "Azure Synapse Analytics."
+      ],
+      "answer": 3,
+      "explanation": "El motor de integración y orquestación de Azure Data Factory también está disponible dentro de Azure Synapse Analytics, ya que ambas plataformas comparten el mismo motor de pipelines (Integration Runtime).",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 52,
+      "type": "single",
+      "text": "In Microsoft Power BI, you can create _____ to quickly drill-up or drill-down to find aggregated values at different levels of a dimension.",
+      "options": [
+        "a dashboard",
+        "a fact table",
+        "a unique key",
+        "an attribute hierarchy"
+      ],
+      "answer": 3,
+      "explanation": "En Power BI, una 'attribute hierarchy' permite navegar rápidamente entre diferentes niveles de detalle dentro de una dimensión, habilitando operaciones de drill-up y drill-down para analizar valores agregados.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 53,
+      "text": "In an analytical data model, which type of table contains entities that are used to aggregate numeric values, where each entity is represented by a row with a unique key value?",
+      "options": [
+        "bridge",
+        "dimension",
+        "fact"
+      ],
+      "answer": 2,
+      "explanation": "En un modelo de datos analítico, las tablas de hechos (fact tables) almacenan los valores numéricos que se agregan, como ventas, cantidad o montos. Cada registro representa un evento o transacción única identificada por una clave.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 54,
+      "text": "Azure Data Explorer uses ______ to explore, filter, and aggregate data quickly.",
+      "options": [
+        "KQL",
+        "Python",
+        "Scala",
+        "SQL"
+      ],
+      "answer": 0,
+      "explanation": "Azure Data Explorer utiliza Kusto Query Language (KQL), un lenguaje optimizado para consultas rápidas sobre grandes volúmenes de datos.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 55,
+      "type": "hotspot_yes_no",
+      "text": "Evaluate the following statements about Azure Database services.",
+      "statements": [
+        {
+          "text": "The pgAdmin tool can be used to manage Azure Database for PostgreSQL.",
+          "answer": true
+        },
+        {
+          "text": "Azure Database for MariaDB offers point-in-time restore for up to 365 days.",
+          "answer": false
+        },
+        {
+          "text": "Azure Database for MySQL always requires SSL connections.",
+          "answer": true
+        }
+      ],
+      "explanation": "pgAdmin sí puede administrar Azure Database for PostgreSQL. MariaDB no ofrece 365 días de point-in-time restore; normalmente es menor. Azure Database for MySQL sí exige conexiones SSL para mayor seguridad.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 56,
+      "type": "single_choice",
+      "text": "Which statement is an example of a Data Manipulation Language (DML) statement?",
+      "options": [
+        "CREATE",
+        "DROP",
+        "RENAME",
+        "UPDATE"
+      ],
+      "answer": 3,
+      "explanation": "UPDATE es un comando DML porque modifica los datos almacenados en la base de datos. Los comandos DML incluyen INSERT, UPDATE y DELETE.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 57,
+      "text": "You have a banking application that transfers money in to and out of accounts. Of which type of solution is this an example?",
+      "options": [
+        "online transaction processing (OLTP)",
+        "online analytical processing (OLAP)",
+        "extract, transform and load (ETL)",
+        "a data warehouse"
+      ],
+      "answer": 0,
+      "explanation": "OLTP se utiliza en sistemas donde se procesan transacciones rápidas y consistentes, como depósitos, retiros o transferencias bancarias. Está optimizado para operaciones de lectura/escritura en tiempo real.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 58,
+      "text": "Which activity is most common for transactional workloads?",
+      "options": [
+        "recording small units of work events in real time",
+        "aggregating massive amounts of data",
+        "producing complex reports",
+        "performing self-service data exploration"
+      ],
+      "answer": 0,
+      "explanation": "Los sistemas transaccionales (OLTP) registran unidades pequeñas de trabajo en tiempo real, como compras, pagos o movimientos de cuentas. Se enfocan en rapidez, consistencia y alta concurrencia.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 59,
+      "text": "Blob rehydration occurs in Azure Blob storage when a blob moves between which access tiers?",
+      "options": [
+        "Hot to Cool",
+        "Hot to Archive",
+        "Cool to Archive",
+        "Archive to Cool"
+      ],
+      "answer": 3,
+      "explanation": "La rehidratación ocurre cuando un blob sale del nivel Archive y se mueve hacia un nivel más accesible, como Cool. Este proceso restaura el blob para que pueda ser leído nuevamente.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 60,
+      "text": "Which Azure Cosmos DB API should you use for a graph database?",
+      "options": [
+        "Azure Cosmos DB for Table",
+        "Azure Cosmos DB for Apache Cassandra",
+        "Azure Cosmos DB for NoSQL",
+        "Azure Cosmos DB for Apache Gremlin"
+      ],
+      "answer": 3,
+      "explanation": "Azure Cosmos DB for Apache Gremlin es el API diseñado específicamente para trabajar con bases de datos de grafos, permitiendo modelar nodos, aristas y sus propiedades.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 61,
+      "text": "Which Azure Cosmos DB API is used to store and query graph data?",
+      "options": [
+        "Azure Cosmos DB for Apache Cassandra API",
+        "Azure Cosmos DB for Apache Gremlin API",
+        "Azure Cosmos DB for NoSQL API",
+        "Azure Cosmos DB for Table API"
+      ],
+      "answer": 1,
+      "explanation": "El API de Apache Gremlin es el que permite crear y consultar grafos, usando nodos y aristas para modelar relaciones complejas.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 62,
+      "text": "Which Azure Cosmos DB API is used for JSON documents?",
+      "options": [
+        "Azure Cosmos DB for Apache Cassandra API",
+        "Azure Cosmos DB for Apache Gremlin API",
+        "Azure Cosmos DB for NoSQL API",
+        "Azure Cosmos DB for Table API"
+      ],
+      "answer": 2,
+      "explanation": "El API de Azure Cosmos DB para NoSQL es el que utiliza documentos JSON como modelo de datos principal.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 63,
+      "text": "Which Azure Cosmos DB API is used for key/value data?",
+      "options": [
+        "Azure Cosmos DB for Apache Cassandra API",
+        "Azure Cosmos DB for Apache Gremlin API",
+        "Azure Cosmos DB for NoSQL API",
+        "Azure Cosmos DB for Table API"
+      ],
+      "answer": 3,
+      "explanation": "Azure Cosmos DB for Table API implementa un modelo key/value compatible con Azure Table Storage.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 64,
+      "text": "Which cloud service model does Azure SQL Database belong to?",
+      "options": [
+        "Infrastructure as a service (IaaS)",
+        "Platform as a service (PaaS)",
+        "Software as a service (SaaS)"
+      ],
+      "answer": 1,
+      "explanation": "Azure SQL Database is a Platform as a Service (PaaS) offering because Microsoft manages the database engine, infrastructure, backups, updates y alta disponibilidad.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 65,
+      "text": "Azure SQL Managed Instance belongs to which cloud service model?",
+      "options": [
+        "Infrastructure as a service",
+        "Platform as a service",
+        "Software as a service"
+      ],
+      "answer": 2,
+      "explanation": "Azure SQL Managed Instance es un servicio administrado completamente por Azure, donde la infraestructura, parches, backups y alta disponibilidad están manejados por el proveedor. Por ello corresponde al modelo Software as a Service (SaaS).",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 66,
+      "text": "Which cloud service model corresponds to SQL Server on Azure Virtual Machines?",
+      "options": [
+        "Infrastructure as a service",
+        "Platform as a service",
+        "Software as a service"
+      ],
+      "answer": 0,
+      "explanation": "SQL Server on Azure Virtual Machines es un servicio IaaS (Infrastructure as a Service), donde Microsoft administra la infraestructura física, pero el cliente administra el sistema operativo, SQL Server y las configuraciones.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 67,
+      "type": "hotspot_yes_no",
+      "text": "Evaluate the following statements about relational and key/value data stores. Select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "In a relational database, the schema is defined before data is written to the table.",
+          "answer": true
+        },
+        {
+          "text": "Key/value data stores are highly optimized for complex queries that contain multiple joins.",
+          "answer": false
+        },
+        {
+          "text": "A relational database is commonly used to store and query structured data.",
+          "answer": true
+        }
+      ],
+      "explanation": "Las bases de datos relacionales requieren un esquema predefinido antes de insertar datos y son adecuadas para datos estructurados. Los almacenes key/value no están optimizados para consultas complejas con múltiples joins.",
+      "category": "Conceptos Fundamentales de Datos"
+    },
+    {
+      "id": 68,
+      "type": "single_choice",
+      "text": "The ___ service is optimized for IoT solutions.",
+      "options": [
+        "Azure SQL Database",
+        "Azure SQL Edge",
+        "Azure SQL Managed Instance",
+        "SQL Server on Azure Virtual Machines"
+      ],
+      "answer": 1,
+      "explanation": "Azure SQL Edge está optimizado para soluciones de IoT (Internet of Things). Ofrece capacidades diseñadas para procesar, almacenar y analizar datos en el borde, ideal para dispositivos y escenarios desconectados o de baja latencia.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 69,
+      "text": "Which Azure Cosmos DB API should you use for a graph database?",
+      "options": [
+        "Table",
+        "Cassandra",
+        "NoSQL",
+        "Gremlin"
+      ],
+      "answer": 3,
+      "explanation": "El API de Azure Cosmos DB diseñado específicamente para trabajar con datos de grafos es el API de Gremlin. Permite modelar nodos, aristas y relaciones de manera nativa.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 70,
+      "text": "Which language is used by Azure Data Explorer?",
+      "options": [
+        "JavaScript",
+        "KQL",
+        "Python",
+        "SQL"
+      ],
+      "answer": 1,
+      "explanation": "Azure Data Explorer usa KQL (Kusto Query Language) para explorar, filtrar y analizar datos rápidamente.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 71,
+      "text": "Which language is used by Azure Stream Analytics?",
+      "options": [
+        "JavaScript",
+        "KQL",
+        "Python",
+        "SQL"
+      ],
+      "answer": 3,
+      "explanation": "Azure Stream Analytics usa un lenguaje SQL-like para definir consultas en flujos de datos en tiempo real.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 72,
+      "text": "Which language is used by Azure Synapse Analytics for data processing?",
+      "options": [
+        "JavaScript",
+        "KQL",
+        "Python",
+        "SQL"
+      ],
+      "answer": 2,
+      "explanation": "Azure Synapse Analytics permite ejecutar pipelines y notebooks usando Python para análisis avanzado.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 73,
+      "text": "Which type of Azure resource supports the serverless configuration of an Azure SQL database?",
+      "options": [
+        "SQL Server on Azure Virtual Machines",
+        "an Azure SQL Database elastic pool",
+        "a single database in Azure SQL Database",
+        "Azure SQL Managed Instance"
+      ],
+      "answer": 2,
+      "explanation": "Solo las bases de datos individuales en Azure SQL Database soportan la configuración serverless. Las instancias administradas y los elásticos no ofrecen este modo.",
+      "category": "Datos Relacionales en Azure"
+    },
+    {
+      "id": 74,
+      "text": "After you create Microsoft Power BI data models and reports, you can publish them to:",
+      "options": [
+        "Power BI Desktop",
+        "Power Query",
+        "the Power BI phone app",
+        "the Power BI service"
+      ],
+      "answer": 3,
+      "explanation": "Los modelos y reportes de Power BI se publican en el servicio de Power BI para poder compartirlos, refrescarlos automáticamente y administrarlos en espacios de trabajo.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 75,
+      "text": "Microsoft Power BI Desktop provides a full range of Power BI data modeling and report editing features.",
+      "options": [
+        "Microsoft Power BI Desktop",
+        "The Microsoft Power BI service",
+        "The Microsoft Power BI phone app"
+      ],
+      "answer": 0,
+      "explanation": "Microsoft Power BI Desktop es la herramienta que permite modelar datos, transformar información y crear reportes completos antes de publicarlos en el servicio de Power BI.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 76,
+      "text": "Microsoft Power BI Desktop provides a full range of Power BI data modeling and report editing features.",
+      "options": [
+        "Microsoft Power BI Desktop",
+        "The Microsoft Power BI service",
+        "The Microsoft Power BI phone app"
+      ],
+      "answer": 0,
+      "explanation": "Microsoft Power BI Desktop es la herramienta que permite realizar todo el modelado de datos, diseño del modelo, relaciones, medidas DAX y edición completa de reportes antes de publicarlos al servicio.",
+      "category": "Cargas de Trabajo de Analítica en Azure"
+    },
+    {
+      "id": 77,
+      "type": "hotspot_yes_no",
+      "text": "Evaluate each of the following statements about Azure File Storage and select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "You create Azure File Storage in a storage account.",
+          "answer": true
+        },
+        {
+          "text": "The Premium tier of Azure File Storage uses HDD-based hardware in a datacenter.",
+          "answer": false
+        },
+        {
+          "text": "The Standard tier of Azure File Storage uses SSDs.",
+          "answer": false
+        }
+      ],
+      "explanation": "Azure File Storage always resides inside an Azure Storage account. La capa Premium utiliza SSDs, no HDDs, y la capa Standard usa HDDs, no SSDs.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 78,
+      "text": "Which Azure Cosmos DB API enables the use of SELECT statements to retrieve documents from Azure Cosmos DB?",
+      "options": [
+        "Azure Cosmos DB for Apache Cassandra",
+        "Azure Cosmos DB for Apache Gremlin",
+        "Azure Cosmos DB for MongoDB",
+        "Azure Cosmos DB for NoSQL"
+      ],
+      "answer": 3,
+      "explanation": "La API de Azure Cosmos DB for NoSQL permite usar consultas SELECT basadas en SQL para recuperar documentos, ya que utiliza un modelo de consulta estilo SQL compatible con JSON.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 79,
+      "type": "hotspot_yes_no",
+      "text": "Evaluate the following statements about Azure Storage access tiers.",
+      "statements": [
+        {
+          "text": "The Cool access tier is the default tier of an Azure Storage account.",
+          "answer": false
+        },
+        {
+          "text": "Append blobs are optimized for random read and write operations.",
+          "answer": false
+        },
+        {
+          "text": "Retrieving data from the Archive access tier takes hours to complete.",
+          "answer": true
+        }
+      ],
+      "explanation": "El nivel de acceso predeterminado es Hot, no Cool. Los append blobs están optimizados únicamente para escrituras al final del archivo, no para lecturas/escrituras aleatorias. Recuperar datos del tier Archive puede tardar varias horas debido al proceso de rehidratación.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 80,
+      "type": "single_choice",
+      "text": "Which data storage option should you use for tabular datasets?",
+      "options": [
+        "Azure Blob Storage",
+        "Azure Cosmos DB for NoSQL",
+        "Azure Data Factory",
+        "Azure SQL Database"
+      ],
+      "answer": 2,
+      "explanation": "Azure Data Factory permite la orquestación y procesamiento de datos en formato tabular para integraciones y flujos ETL/ELT en Azure.",
+      "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 81,
+      "text": "Which Azure storage option is appropriate for storing audio files?",
+      "options": [
+        "Azure Blob Storage",
+        "Azure Cosmos DB for NoSQL",
+        "Azure Data Factory",
+        "Azure SQL Database"
+      ],
+      "answer": 0,
+      "explanation": "Azure Blob Storage es la opción adecuada para almacenar archivos multimedia como audio, video e imágenes. Está optimizado para datos no estructurados.",
+      "category": "Datos No Relacionales en Azure"
     }
   ]
 }

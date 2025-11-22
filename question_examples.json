@@ -1,0 +1,93 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "text": "Which Azure service provides fully managed PostgreSQL as a platform as a service?",
+            "options": [
+                "Azure VM with PostgreSQL",
+                "Azure Database for PostgreSQL",
+                "Azure Cosmos DB",
+                "Azure Data Factory"
+            ],
+            "answer": 1,
+            "explanation": "Azure Database for PostgreSQL es la versión PaaS totalmente administrada que elimina la necesidad de gestionar la infraestructura subyacente.",
+            "category": "Servicios de Datos en Azure"
+        },
+        {
+            "id": 2,
+            "text": "What are two benefits of platform as a service (PaaS) relational database offerings in Azure? Each correct answer presents a complete solution.",
+            "is_multi": true,
+            "options": [
+                "Access to the latest features",
+                "Complete control over backup and restore processes",
+                "In-database machine learning services",
+                "Reduced administrative effort for managing the server infrastructure"
+            ],
+            "answers": [
+                0,
+                3
+            ],
+            "explanation": "Los servicios PaaS ofrecen actualizaciones automáticas con las últimas características y reducen significativamente la carga administrativa al gestionar automáticamente la infraestructura del servidor.",
+            "category": "Servicios de Datos en Azure"
+        },
+        {
+            "id": 3,
+            "type": "hotspot_yes_no",
+            "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+            "statements": [
+                {
+                    "text": "Relational database tables contain columns and rows.",
+                    "answer": true
+                },
+                {
+                    "text": "Indexes in a relational database describe the data types in a table.",
+                    "answer": false
+                },
+                {
+                    "text": "A database view is a virtual table whose content is defined by a query.",
+                    "answer": true
+                }
+            ],
+            "explanation": "Las tablas relacionales almacenan datos en filas y columnas. Los índices aceleran las búsquedas pero no describen tipos de datos (eso lo hace el esquema). Las vistas son tablas virtuales basadas en consultas SELECT.",
+            "category": "Fundamentos de Bases de Datos"
+        },
+        {
+            "id": 4,
+            "text": "Which type of database contains nodes and edges?",
+            "options": [
+                "Graph",
+                "Key/value",
+                "Columnar",
+                "Time series"
+            ],
+            "answer": 0,
+            "explanation": "Las bases de datos de grafos almacenan datos como nodos (entidades) y aristas (relaciones entre entidades), ideales para representar redes sociales, sistemas de recomendación y análisis de relaciones complejas.",
+            "category": "Fundamentos de Bases de Datos"
+        },
+        {
+            "id": 5,
+            "type": "hotspot_yes_no",
+            "text": "For each of the following statements about Azure Synapse Analytics, select Yes if the statement is true. Otherwise, select No.",
+            "statements": [
+                {
+                    "text": "Azure Synapse Analytics is designed for Online Transaction Processing (OLTP) workloads.",
+                    "answer": false
+                },
+                {
+                    "text": "Azure Synapse Analytics can integrate with Power BI for data visualization.",
+                    "answer": true
+                },
+                {
+                    "text": "Azure Synapse Analytics supports both serverless and dedicated SQL pools.",
+                    "answer": true
+                },
+                {
+                    "text": "Azure Synapse Analytics cannot process unstructured data.",
+                    "answer": false
+                }
+            ],
+            "explanation": "Azure Synapse Analytics está diseñado para OLAP (no OLTP), se integra perfectamente con Power BI, ofrece pools SQL serverless y dedicados, y puede procesar datos estructurados y no estructurados mediante Apache Spark.",
+            "category": "Servicios de Datos en Azure"
+        }
+    ]
+}

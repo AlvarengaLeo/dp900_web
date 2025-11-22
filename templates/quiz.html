@@ -1,83 +1,68 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DP-900 Practice Exam</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-
     <style>
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: 'Inter', sans-serif;
+            background: #111827;
+            color: #e5e7eb;
             margin: 0;
             padding: 0;
-            background: #050c12;
-            color: #f9fafb;
         }
 
         .page {
-            min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            padding: 40px 16px;
+            padding: 20px;
         }
 
         .quiz-container {
-            background: #0b1924;
-            border-radius: 16px;
-            box-shadow: 0 14px 30px rgba(0,0,0,.6);
-            max-width: 960px;
+            max-width: 800px;
             width: 100%;
-            padding: 24px 32px 32px;
-            box-sizing: border-box;
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 24px 32px 28px;
+        }
+
+        .quiz-header {
+            margin-bottom: 20px;
         }
 
         .quiz-header h1 {
-            margin: 0 0 4px 0;
-            font-size: 1.8rem;
-        }
-
-        .quiz-header p {
             margin: 0;
-            color: #9ca3af;
+            font-size: 1.8rem;
+            color: #f9fafb;
         }
 
         .progress-bar {
-            margin-top: 16px;
-            width: 100%;
-            height: 8px;
-            border-radius: 999px;
-            background: #111827;
-            overflow: hidden;
+            height: 6px;
+            background: #374151;
+            border-radius: 3px;
+            margin-top: 8px;
         }
 
         .progress-bar-inner {
             height: 100%;
-            border-radius: inherit;
-            background: linear-gradient(90deg, #0ea5e9, #22c55e);
-            transition: width .25s ease-out;
+            background: #2563eb;
+            border-radius: 3px;
         }
 
         .question-card {
-            margin-top: 24px;
-            padding: 20px 22px 24px;
-            border-radius: 14px;
-            background: #020617;
-            border: 1px solid #1f2937;
+            margin-top: 20px;
         }
 
         .question-number {
-            font-size: .9rem;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            color: #6b7280;
-            margin-bottom: 6px;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .question-text {
-            font-size: 1.1rem;
-            line-height: 1.5;
             margin-bottom: 16px;
+            font-size: 1.1rem;
         }
 
         .options {
@@ -87,46 +72,29 @@
         }
 
         .option-item {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .option-label {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 10px;
-            border: 1px solid #1f2937;
             cursor: pointer;
-            transition: background .15s ease, border-color .15s ease, transform .05s ease;
         }
 
-        .option-label:hover {
-            background: #020617;
-            border-color: #2563eb;
-            transform: translateY(-1px);
-        }
-
-        input[type="radio"],
-        input[type="checkbox"] {
-            accent-color: #2563eb;
-        }
-
-        .option-text {
-            flex: 1;
+        .option-label input {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
         }
 
         .controls {
-            margin-top: 22px;
             display: flex;
-            align-items: center;
             gap: 12px;
-            flex-wrap: wrap;
+            margin-top: 20px;
+            align-items: center;
         }
 
         .btn {
-            border: none;
-            border-radius: 999px;
             padding: 9px 18px;
             font-size: .95rem;
             cursor: pointer;
@@ -134,11 +102,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            border-radius: 6px;
         }
 
         .btn-primary {
             background: #2563eb;
             color: #f9fafb;
+            border: none;
         }
 
         .btn-primary:hover {
@@ -164,13 +134,13 @@
         }
 
         .feedback.correct {
-            background: rgba(34,197,94,.1);
+            background: rgba(34, 197, 94, .1);
             border: 1px solid #22c55e;
             color: #bbf7d0;
         }
 
         .feedback.incorrect {
-            background: rgba(248,113,113,.08);
+            background: rgba(248, 113, 113, .08);
             border: 1px solid #f97373;
             color: #fecaca;
         }
@@ -205,126 +175,170 @@
 </head>
 
 <body>
-<div class="page">
-    <div class="quiz-container">
-        <header class="quiz-header">
-            <h1>DP-900 Practice Exam</h1>
-            <p>Question {{ index }} of {{ total }}</p>
-
-            <div class="progress-bar">
-                <div class="progress-bar-inner" style="width: {{ progress }}%;"></div>
-            </div>
-        </header>
-
-        <main>
-            <section class="question-card">
-                <div class="question-number">Question {{ index }}</div>
-                <div class="question-text">{{ question.text }}</div>
-
-                <form method="post" action="{{ url_for('quiz', index=index) }}">
-                    <ul class="options">
-
-                        {% if is_multi %}
-                            {# ================================
-                               MULTIPLE RESPUESTAS → CHECKBOXES
-                               ================================ #}
-                            {% for opt in question.options %}
-                                <li class="option-item">
-                                    <label class="option-label">
-                                        <input
-                                            type="checkbox"
-                                            name="answer"
-                                            value="{{ loop.index0 }}"
-                                            {% if selected is not none and loop.index0 in selected %}checked{% endif %}
-                                        />
-                                        <span class="option-text">{{ opt }}</span>
-                                    </label>
-                                </li>
+    <div class="page">
+        <div class="quiz-container">
+            <header class="quiz-header">
+                <h1>DP-900 Practice Exam</h1>
+                <p>Question {{ index }} of {{ total }}</p>
+                <div class="progress-bar">
+                    <div class="progress-bar-inner" style="width: {{ progress }}%;"></div>
+                </div>
+            </header>
+            <main>
+                <section class="question-card">
+                    <div class="question-number">Question {{ index }}</div>
+                    <div class="question-text">{{ question.text }}</div>
+                    <form method="post" action="{{ url_for('quiz', index=index) }}">
+                        {% if is_hotspot %}
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid rgba(255,255,255,0.1);">
+                                    <th style="text-align: left; padding: 12px 8px; color: #9ca3af; font-weight: 600;">
+                                        Statement</th>
+                                    <th
+                                        style="text-align: center; padding: 12px 8px; color: #9ca3af; font-weight: 600; width: 80px;">
+                                        Yes</th>
+                                    <th
+                                        style="text-align: center; padding: 12px 8px; color: #9ca3af; font-weight: 600; width: 80px;">
+                                        No</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for stmt in question.statements %}
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <td style="padding: 12px 8px; color: #E5E7EB;">{{ stmt.text }}</td>
+                                    <td style="text-align: center; padding: 12px 8px;">
+                                        <input type="radio" name="stmt_{{ loop.index0 }}" value="yes"
+                                            style="cursor: pointer; width: 18px; height: 18px;" />
+                                    </td>
+                                    <td style="text-align: center; padding: 12px 8px;">
+                                        <input type="radio" name="stmt_{{ loop.index0 }}" value="no"
+                                            style="cursor: pointer; width: 18px; height: 18px;" />
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% if hotspot_details %}
+                        <div style="margin-top: 20px; padding: 16px; background: rgba(0,0,0,0.2); border-radius: 8px;">
+                            <h4 style="margin: 0 0 12px 0; color: #E5E7EB; font-size: 0.9rem; font-weight: 600;">
+                                Statement Results:</h4>
+                            {% for detail in hotspot_details %}
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    {% if detail.is_correct %}
+                                    <span style="color: #4CAF50; font-size: 1.2rem;">✓</span>
+                                    {% else %}
+                                    <span style="color: #D96666; font-size: 1.2rem;">✗</span>
+                                    {% endif %}
+                                    <span style="color: #E5E7EB; flex: 1;">{{ detail.statement }}</span>
+                                </div>
+                                <div style="margin-left: 28px; margin-top: 4px; font-size: 0.85rem;">
+                                    <span style="color: #9ca3af;">Your answer: </span>
+                                    <span style="color: #E5E7EB;">{{ "Yes" if detail.user_answer else "No" }}</span>
+                                    <span style="color: #9ca3af; margin-left: 12px;">Correct: </span>
+                                    <span style="color: #4CAF50; font-weight: 600;">{{ "Yes" if detail.correct_answer
+                                        else "No" }}</span>
+                                </div>
+                            </div>
                             {% endfor %}
-
-                        {% else %}
-                            {# ================================
-                               UNA SOLA RESPUESTA → RADIOS
-                               ================================ #}
-                            {% for opt in question.options %}
-                                <li class="option-item">
-                                    <label class="option-label">
-                                        <input
-                                            type="radio"
-                                            name="answer"
-                                            value="{{ loop.index0 }}"
-                                            {% if selected is not none and selected == loop.index0 %}checked{% endif %}
-                                            {% if loop.first %}required{% endif %}
-                                        />
-                                        <span class="option-text">{{ opt }}</span>
-                                    </label>
-                                </li>
-                            {% endfor %}
-                        {% endif %}
-                    </ul>
-
-                    <div class="controls">
-                        <button type="submit" name="action" value="check" class="btn btn-primary">
-                            Check your answer
-                        </button>
-
-                        {% if is_last %}
-                            <button type="submit" name="action" value="finish" class="btn btn-outline">
-                                Finish exam
-                            </button>
-                        {% else %}
-                            <button type="submit" name="action" value="next" class="btn btn-outline">
-                                Next question
-                            </button>
-                        {% endif %}
-
-                        <div class="score-pill">
-                            Score: {{ correct_count }} / {{ total }} ({{ "%.1f"|format(percentage) }} / 10)
                         </div>
-                    </div>
-                </form>
-
-                {% if feedback %}
+                        {% endif %}
+                        {% else %}
+                        <ul class="options">
+                            {% if is_multi %}
+                            {% for opt in question.options %}
+                            <li class="option-item">
+                                <label class="option-label">
+                                    <input type="checkbox" name="answer" value="{{ loop.index0 }}" {% if selected is not
+                                        none and loop.index0 in selected %}checked{% endif %} />
+                                    <span class="option-text">{{ opt }}</span>
+                                </label>
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                            {% for opt in question.options %}
+                            <li class="option-item">
+                                <label class="option-label">
+                                    <input type="radio" name="answer" value="{{ loop.index0 }}" {% if selected is not
+                                        none and selected==loop.index0 %}checked{% endif %} {% if loop.first
+                                        %}required{% endif %} />
+                                    <span class="option-text">{{ opt }}</span>
+                                </label>
+                            </li>
+                            {% endfor %}
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                        <div class="controls">
+                            <button type="submit" name="action" value="check" class="btn btn-primary">Check your
+                                answer</button>
+                            {% if is_last %}
+                            <button type="submit" name="action" value="finish" class="btn btn-outline">Finish
+                                exam</button>
+                            {% else %}
+                            <button type="submit" name="action" value="next" class="btn btn-outline">Next
+                                question</button>
+                            {% endif %}
+                            <div class="score-pill">Score: {{ correct_count }} / {{ total }} ({{
+                                "%.1f"|format(percentage) }} / 10)</div>
+                        </div>
+                    </form>
+                    {% if feedback %}
                     <div class="feedback {% if is_correct %}correct{% else %}incorrect{% endif %}">
                         <div class="feedback-title">
-                            {% if is_correct %}
-                                ✓ Correct answer
-                            {% else %}
-                                ✗ Incorrect answer
-                            {% endif %}
+                            {% if is_correct %}✓ Correct answer{% else %}✗ Incorrect answer{% endif %}
                         </div>
                         <div>{{ feedback }}</div>
                     </div>
-                {% endif %}
-            </section>
-        </main>
+                    {% endif %}
+                </section>
+            </main>
+        </div>
     </div>
-</div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-    if (!form) return;
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            if (!form) return;
 
-    form.addEventListener("submit", function (e) {
-        const isMulti = {{ "true" if is_multi else "false" }};
+            form.addEventListener('submit', function (e) {
+                const isHotspot = document.querySelector('input[name^="stmt_"]');
+                const isMulti = document.querySelector('input[type="checkbox"][name="answer"]');
+                const isSingle = document.querySelector('input[type="radio"][name="answer"]');
 
-        if (isMulti) {
-            const checked = form.querySelectorAll('input[name="answer"]:checked');
-            if (checked.length === 0) {
-                e.preventDefault();
-                alert("Debes seleccionar al menos una opción.");
-            }
-        } else {
-            const checked = form.querySelector('input[name="answer"]:checked');
-            if (!checked) {
-                e.preventDefault();
-                alert("Debes seleccionar una opción antes de continuar.");
-            }
-        }
-    });
-});
-</script>
+                if (isHotspot) {
+                    const rows = document.querySelectorAll('tbody tr');
+                    let allAnswered = true;
 
+                    rows.forEach((row, index) => {
+                        const yes = row.querySelector(`input[name="stmt_${index}"][value="yes"]`);
+                        const no = row.querySelector(`input[name="stmt_${index}"][value="no"]`);
+                        if (!yes.checked && !no.checked) {
+                            allAnswered = false;
+                        }
+                    });
+
+                    if (!allAnswered) {
+                        e.preventDefault();
+                        alert("Por favor, responde a todas las declaraciones (Sí/No) antes de continuar.");
+                    }
+                } else if (isMulti) {
+                    const checked = form.querySelectorAll('input[name="answer"]:checked');
+                    if (checked.length === 0) {
+                        e.preventDefault();
+                        alert("Debes seleccionar al menos una opción.");
+                    }
+                } else if (isSingle) {
+                    const checked = form.querySelector('input[name="answer"]:checked');
+                    if (!checked) {
+                        e.preventDefault();
+                        alert("Debes seleccionar una opción antes de continuar.");
+                    }
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <title>DP-900 Practice Exam</title>
@@ -24,7 +25,7 @@
         .card {
             background: #0b1924;
             border-radius: 16px;
-            box-shadow: 0 14px 30px rgba(0,0,0,.6);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, .6);
             max-width: 720px;
             width: 100%;
             padding: 32px;
@@ -58,17 +59,31 @@
         }
     </style>
 </head>
-<body>
-<div class="page">
-    <div class="card">
-        <h1>DP-900 Practice Exam</h1>
-        <p>100 preguntas de práctica. Haz clic en el botón para comenzar.</p>
 
-        <!-- IMPORTANTE: GET y acción a /quiz -->
-        <form method="get" action="{{ url_for('quiz', index=0) }}">
-            <button type="submit" class="btn-primary">Comenzar examen</button>
-        </form>
+<body>
+    <div class="page">
+        <div class="card">
+            <h1>DP-900 Practice Exam</h1>
+            <p>Preguntas de práctica. Haz clic en el botón para comenzar.</p>
+
+            <form method="post" action="{{ url_for('start') }}">
+                <div style="margin-bottom: 20px;">
+                    <label for="category"
+                        style="display: block; margin-bottom: 8px; color: #9ca3af; font-weight: 500;">Selecciona un
+                        tema:</label>
+                    <select name="category" id="category" required
+                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #1f2937; background: #020617; color: #f9fafb; font-size: 1rem;">
+                        <option value="" disabled selected>-- Elige una categoría --</option>
+                        <option value="Todas">Todas</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat }}">{{ cat }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Comenzar examen</button>
+            </form>
+        </div>
     </div>
-</div>
 </body>
+
 </html>

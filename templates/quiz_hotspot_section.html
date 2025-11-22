@@ -1,0 +1,89 @@
+<form method="post" action="{{ url_for('quiz', index=index) }}">
+    {% if is_hotspot %}
+    {# HOTSPOT YES/NO → TABLE #}
+    <p style="margin-bottom: 16px; color: #9ca3af;">
+        For each of the following statements, select Yes if the statement is true. Otherwise, select No.
+    </p>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+        <thead>
+            <tr style="border-bottom: 2px solid rgba(255,255,255,0.1);">
+                <th style="text-align: left; padding: 12px 8px; color: #9ca3af; font-weight: 600;">Statement</th>
+                <th style="text-align: center; padding: 12px 8px; color: #9ca3af; font-weight: 600; width: 80px;">Yes
+                </th>
+                <th style="text-align: center; padding: 12px 8px; color: #9ca3af; font-weight: 600; width: 80px;">No
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stmt in question.statements %}
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 8px; color: #E5E7EB;">{{ stmt.text }}</td>
+                <td style="text-align: center; padding: 12px 8px;">
+                    <input type="radio" name="stmt_{{ loop.index0 }}" value="yes"
+                        style="cursor: pointer; width: 18px; height: 18px;" />
+                </td>
+                <td style="text-align: center; padding: 12px 8px;">
+                    <input type="radio" name="stmt_{{ loop.index0 }}" value="no"
+                        style="cursor: pointer; width: 18px; height: 18px;" />
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {# Show per-statement feedback after checking #}
+    {% if hotspot_details %}
+    <div style="margin-top: 20px; padding: 16px; background: rgba(0,0,0,0.2); border-radius: 8px;">
+        <h4 style="margin: 0 0 12px 0; color: #E5E7EB; font-size: 0.9rem; font-weight: 600;">Statement Results:</h4>
+        {% for detail in hotspot_details %}
+        <div style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                {% if detail.is_correct %}
+                <span style="color: #4CAF50; font-size: 1.2rem;">✓</span>
+                {% else %}
+                <span style="color: #D96666; font-size: 1.2rem;">✗</span>
+                {% endif %}
+                <span style="color: #E5E7EB; flex: 1;">{{ detail.statement }}</span>
+            </div>
+            <div style="margin-left: 28px; margin-top: 4px; font-size: 0.85rem;">
+                <span style="color: #9ca3af;">Your answer: </span>
+                <span style="color: #E5E7EB;">{{ "Yes" if detail.user_answer else "No" }}</span>
+                <span style="color: #9ca3af; margin-left: 12px;">Correct: </span>
+                <span style="color: #4CAF50; font-weight: 600;">{{ "Yes" if detail.correct_answer else "No" }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% else %}
+    {# Regular questions (multi-choice or single-choice) #}
+    <ul class="options">
+
+        {% if is_multi %}
+        {# MULTIPLE RESPUESTAS → CHECKBOXES #}
+        {% for opt in question.options %}
+        <li class="option-item">
+            <label class="option-label">
+                <input type="checkbox" name="answer" value="{{ loop.index0 }}" {% if selected is not none and
+                    loop.index0 in selected %}checked{% endif %} />
+                <span class="option-text">{{ opt }}</span>
+            </label>
+        </li>
+        {% endfor %}
+
+        {% else %}
+        {# UNA SOLA RESPUESTA → RADIOS #}
+        {% for opt in question.options %}
+        <li class="option-item">
+            <label class="option-label">
+                <input type="radio" name="answer" value="{{ loop.index0 }}" {% if selected is not none and
+                    selected==loop.index0 %}checked{% endif %} {% if loop.first %}required{% endif %} />
+                <span class="option-text">{{ opt }}</span>
+            </label>
+        </li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+    {% endif %}
