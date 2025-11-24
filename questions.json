@@ -52,48 +52,6 @@
       "category": "Conceptos Fundamentales de Datos"
     },
     {
-      "id": 4,
-      "type": "hotspot_yes_no",
-      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
-      "statements": [
-        {
-          "text": "You must apply operating system updates to Azure SQL databases regularly.",
-          "answer": false
-        },
-        {
-          "text": "You need a Microsoft 365 subscription to create an Azure SQL database.",
-          "answer": false
-        },
-        {
-          "text": "You can use existing Microsoft SQL Server licenses to reduce the cost of Azure SQL databases.",
-          "answer": true
-        }
-      ],
-      "explanation": "Azure SQL Database is a PaaS service; Microsoft handles OS updates, so the customer does not apply them. You do not need a Microsoft 365 subscription to create an Azure SQL database. Azure Hybrid Benefit allows using existing SQL Server licenses with Software Assurance to reduce the cost of Azure SQL Database and Azure SQL Managed Instance.",
-      "category": "Datos Relacionales en Azure"
-    },
-    {
-      "id": 5,
-      "type": "hotspot_yes_no",
-      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
-      "statements": [
-        {
-          "text": "You can use Azure Data Studio to query a Microsoft SQL Server big data cluster.",
-          "answer": true
-        },
-        {
-          "text": "You can use Microsoft SQL Server Management Studio (SSMS) to query an Azure Synapse Analytics data warehouse.",
-          "answer": true
-        },
-        {
-          "text": "You can use MySQL Workbench to query Azure Database for MariaDB databases.",
-          "answer": true
-        }
-      ],
-      "explanation": "Azure Data Studio soporta conexiones a SQL Server Big Data Clusters. SSMS puede consultar un data warehouse de Azure Synapse Analytics. MySQL Workbench permite conectarse y consultar Azure Database for MariaDB.",
-      "category": "Cargas de Trabajo de Analítica en Azure"
-    },
-    {
       "id": 6,
       "type": "hotspot_yes_no",
       "text": "Select Yes if the statement is true. Otherwise, select No.",
@@ -126,27 +84,6 @@
       "answer": 0,
       "explanation": "The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt. The bcp tool is for bulk copy operations. Azure CLI is used for managing Azure resources, not for querying SQL.",
       "category": "Datos Relacionales en Azure"
-    },
-    {
-      "id": 8,
-      "type": "hotspot_yes_no",
-      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
-      "statements": [
-        {
-          "text": "Relational database tables contain columns and rows.",
-          "answer": true
-        },
-        {
-          "text": "Indexes in a relational database describe the data types in a table.",
-          "answer": false
-        },
-        {
-          "text": "A database view is a virtual table whose content is defined by a query.",
-          "answer": true
-        }
-      ],
-      "explanation": "Las tablas contienen filas y columnas; los índices se usan para acelerar consultas, no para definir tipos; y las vistas son tablas virtuales basadas en consultas.",
-      "category": "Conceptos Fundamentales de Datos"
     },
     {
       "id": 9,
@@ -224,48 +161,6 @@
       ],
       "answer": 0,
       "explanation": "A graph database stores two types of information: nodes and edges. Edges specify relationships between nodes, y ambos pueden tener propiedades.",
-      "category": "Conceptos Fundamentales de Datos"
-    },
-    {
-      "id": 15,
-      "type": "hotspot_yes_no",
-      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
-      "statements": [
-        {
-          "text": "Normalizing a database increases the throughput of writing transactions.",
-          "answer": false
-        },
-        {
-          "text": "Analytics systems are more normalized than transactional systems.",
-          "answer": false
-        },
-        {
-          "text": "Normalizing a database results in queries that require more joins.",
-          "answer": true
-        }
-      ],
-      "explanation": "Normalization reduces redundancy and improves consistency but does not increase write throughput. Analytics systems are usually denormalized. Normalized systems require more joins because data is split across multiple tables.",
-      "category": "Conceptos Fundamentales de Datos"
-    },
-    {
-      "id": 16,
-      "type": "hotspot_yes_no",
-      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
-      "statements": [
-        {
-          "text": "A job that processes sales data once daily is an example of a batch workload.",
-          "answer": true
-        },
-        {
-          "text": "A job that calculates a rolling average temperature reading is an example of a streaming workload.",
-          "answer": true
-        },
-        {
-          "text": "A job that calculates average revenue per product for the last month is an example of a streaming workload.",
-          "answer": false
-        }
-      ],
-      "explanation": "Batch workloads procesan grandes volúmenes de datos en intervalos definidos, como cálculos diarios. Streaming workloads procesan datos en tiempo real y de manera continua. Calcular promedios mensuales es un proceso batch, no streaming.",
       "category": "Conceptos Fundamentales de Datos"
     },
     {
@@ -425,27 +320,6 @@
       "category": "Datos Relacionales en Azure"
     },
     {
-      "id": 29,
-      "type": "hotspot_yes_no",
-      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
-      "statements": [
-        {
-          "text": "Extract, transform, and load (ETL) can reduce the transfer of sensitive data to destination systems.",
-          "answer": true
-        },
-        {
-          "text": "Extract, load, and transform (ELT) transforms data by using a compute resource independent of the source system and destination system.",
-          "answer": false
-        },
-        {
-          "text": "Extract, load, and transform (ELT) minimizes the time it takes to copy large volumes of data to destination systems.",
-          "answer": true
-        }
-      ],
-      "explanation": "ETL procesa los datos antes de cargarlos en el sistema destino, lo que permite filtrar o depurar datos sensibles antes de enviarlos. ELT no usa un recurso de cómputo independiente; las transformaciones ocurren dentro del sistema destino. ELT está optimizado para mover grandes volúmenes de datos rápidamente porque primero carga y luego transforma.",
-      "category": "Conceptos Fundamentales de Datos"
-    },
-    {
       "id": 30,
       "text": "You need to modify a view in a relational database by adding a new column. Which statement should you use?",
       "options": [
@@ -557,19 +431,6 @@
       "category": "Conceptos Fundamentales de Datos"
     },
     {
-      "id": 38,
-      "text": "Which statement is an example of Data Manipulation Language (DML)?",
-      "options": [
-        "REVOKE",
-        "DISABLE",
-        "INSERT",
-        "GRANT"
-      ],
-      "answer": 2,
-      "explanation": "Las sentencias DML modifican los datos almacenados en la base de datos. \"INSERT\" es una instrucción DML utilizada para agregar nuevas filas a una tabla.",
-      "category": "Conceptos Fundamentales de Datos"
-    },
-    {
       "id": 39,
       "type": "hotspot_yes_no",
       "text": "Evaluate the following statements about Platform as a Service (PaaS) database offerings in Azure. Select Yes if the statement is true; otherwise, select No.",
@@ -675,27 +536,6 @@
       ],
       "answer": 2,
       "explanation": "En un proceso ETL, los datos se transforman completamente antes de cargarse al almacén de destino. Esto implica que el procesamiento ocurre antes de la carga, a diferencia del enfoque ELT.",
-      "category": "Conceptos Fundamentales de Datos"
-    },
-    {
-      "id": 46,
-      "type": "hotspot_yes_no",
-      "text": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
-      "statements": [
-        {
-          "text": "Normalization involves eliminating relationships between database tables.",
-          "answer": false
-        },
-        {
-          "text": "Normalizing a database reduces data redundancy.",
-          "answer": true
-        },
-        {
-          "text": "Normalization improves data integrity.",
-          "answer": true
-        }
-      ],
-      "explanation": "La normalización consiste en organizar los datos en una base de datos creando tablas y relaciones para eliminar redundancia e inconsistencias. No elimina relaciones; las define correctamente. Normalizar reduce la redundancia y mejora la integridad de los datos.",
       "category": "Conceptos Fundamentales de Datos"
     },
     {
@@ -1001,19 +841,6 @@
       "category": "Datos Relacionales en Azure"
     },
     {
-      "id": 69,
-      "text": "Which Azure Cosmos DB API should you use for a graph database?",
-      "options": [
-        "Table",
-        "Cassandra",
-        "NoSQL",
-        "Gremlin"
-      ],
-      "answer": 3,
-      "explanation": "El API de Azure Cosmos DB diseñado específicamente para trabajar con datos de grafos es el API de Gremlin. Permite modelar nodos, aristas y relaciones de manera nativa.",
-      "category": "Datos No Relacionales en Azure"
-    },
-    {
       "id": 70,
       "text": "Which language is used by Azure Data Explorer?",
       "options": [
@@ -1088,18 +915,6 @@
       ],
       "answer": 0,
       "explanation": "Microsoft Power BI Desktop es la herramienta que permite modelar datos, transformar información y crear reportes completos antes de publicarlos en el servicio de Power BI.",
-      "category": "Cargas de Trabajo de Analítica en Azure"
-    },
-    {
-      "id": 76,
-      "text": "Microsoft Power BI Desktop provides a full range of Power BI data modeling and report editing features.",
-      "options": [
-        "Microsoft Power BI Desktop",
-        "The Microsoft Power BI service",
-        "The Microsoft Power BI phone app"
-      ],
-      "answer": 0,
-      "explanation": "Microsoft Power BI Desktop es la herramienta que permite realizar todo el modelado de datos, diseño del modelo, relaciones, medidas DAX y edición completa de reportes antes de publicarlos al servicio.",
       "category": "Cargas de Trabajo de Analítica en Azure"
     },
     {
@@ -1438,27 +1253,6 @@
       "category": "lastest"
     },
     {
-      "id": 100,
-      "type": "hotspot_yes_no",
-      "text": "Select Yes if the statement is true; otherwise, select No.",
-      "statements": [
-        {
-          "text": "Azure SQL Database includes a fully managed backup service.",
-          "answer": true
-        },
-        {
-          "text": "Azure SQL Database has built-in high availability.",
-          "answer": true
-        },
-        {
-          "text": "Azure SQL Database can use Azure Advanced Threat Protection (ATP).",
-          "answer": true
-        }
-      ],
-      "explanation": "Azure SQL Database ofrece backups automáticos, alta disponibilidad integrada y compatibilidad con Advanced Threat Protection como parte de sus servicios administrados.",
-      "category": "lastest"
-    },
-    {
       "id": 101,
       "text": "Which three requirements must be met to query a table named Products in an Azure SQL database from the internet?",
       "is_multi": true,
@@ -1618,19 +1412,6 @@
       "category": "Power BI"
     },
     {
-      "id": 113,
-      "text": "Which property of a transactional workload guarantees that each transaction is treated as a single unit that either succeeds completely or fails completely?",
-      "options": [
-        "consistency",
-        "isolation",
-        "atomicity",
-        "durability"
-      ],
-      "answer": 2,
-      "explanation": "La atomicidad garantiza que una transacción se ejecute como una unidad indivisible: o se completa totalmente o se revierte por completo.",
-      "category": "ACID"
-    },
-    {
       "id": 114,
       "text": "Which database transaction property ensures that transactional changes to a database are preserved during unexpected operating system restarts?",
       "options": [
@@ -1667,37 +1448,6 @@
       ],
       "answer": 1,
       "explanation": "Los reportes de Power BI permiten visualizaciones interactivas, mostrar KPIs y habilitar funciones como drill-down, drilling y filtros, lo cual los hace la herramienta adecuada para análisis ejecutivo.",
-      "category": "Power BI"
-    },
-    {
-      "id": 117,
-      "text": "Which three objects can be added to a Microsoft Power BI dashboard?",
-      "options": [
-        "a report page",
-        "a Microsoft PowerPoint slide",
-        "a visualization from a report",
-        "a dataflow",
-        "a text box"
-      ],
-      "answer": [
-        0,
-        2,
-        4
-      ],
-      "explanation": "Los dashboards de Power BI permiten anclar páginas completas de reportes, visualizaciones individuales provenientes de reportes y elementos nativos como cuadros de texto para anotaciones o KPIs. No es posible anclar presentaciones de PowerPoint ni dataflows.",
-      "category": "Power BI"
-    },
-    {
-      "id": 118,
-      "text": "What should you use to build a Microsoft Power BI paginated report?",
-      "options": [
-        "Charticulator",
-        "Power BI Desktop",
-        "the Power BI service",
-        "Power BI Report Builder"
-      ],
-      "answer": 3,
-      "explanation": "Los reportes paginados de Power BI requieren Power BI Report Builder, que es la herramienta especializada para crear documentos estilo SQL Server Reporting Services (SSRS) con formato fijo y diseñado para impresión o exportación.",
       "category": "Power BI"
     }
   ]
