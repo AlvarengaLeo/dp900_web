@@ -56,7 +56,11 @@ def get_shuffled_question(q, permutation):
     if "answers" in q and q["answers"] is not None:
         new_q["answers"] = [old_to_new[ans] for ans in q["answers"]]
     elif "answer" in q and q["answer"] is not None:
-        new_q["answer"] = old_to_new[q["answer"]]
+        # Check if answer is a list (shouldn't happen but handle it gracefully)
+        if isinstance(q["answer"], list):
+            new_q["answer"] = [old_to_new[ans] for ans in q["answer"]]
+        else:
+            new_q["answer"] = old_to_new[q["answer"]]
         
     return new_q
 
