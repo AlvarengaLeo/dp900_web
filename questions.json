@@ -1183,6 +1183,519 @@
       "answer": 0,
       "explanation": "Azure Blob Storage es la opción adecuada para almacenar archivos multimedia como audio, video e imágenes. Está optimizado para datos no estructurados.",
       "category": "Datos No Relacionales en Azure"
+    },
+    {
+      "id": 82,
+      "text": "Which property of a transactional workload guarantees that each transaction is treated as a single unit that either succeeds completely or fails completely?",
+      "options": [
+        "consistency",
+        "isolation",
+        "atomicity",
+        "durability"
+      ],
+      "answer": 2,
+      "explanation": "Atomicity garantiza que una transacción se ejecute como una unidad indivisible: o se completa por completo o se revierte por completo.",
+      "category": "lastest"
+    },
+    {
+      "id": 83,
+      "text": "Which scenario is an example of a streaming workload?",
+      "options": [
+        "sending transactions that are older than a month to an archive",
+        "sending transactions daily from point of sale (POS) devices",
+        "sending telemetry data from edge devices",
+        "sending cloud infrastructure metadata every 30 minutes"
+      ],
+      "answer": 2,
+      "explanation": "Streaming workloads procesan datos en tiempo real o casi en tiempo real. Enviar telemetría desde edge devices es un flujo continuo típico de streaming.",
+      "category": "lastest"
+    },
+    {
+      "id": 84,
+      "text": "You can query a graph database in Azure Cosmos DB:",
+      "options": [
+        "as a JSON document by using a SQL-like language",
+        "as a partitioned row store by using Cassandra Query Language (CQL)",
+        "as a partitioned row store by using Language-Integrated Query (LINQ)",
+        "as nodes and edges by using the Gremlin Language"
+      ],
+      "answer": 3,
+      "explanation": "Las bases de datos de grafos en Azure Cosmos DB se consultan mediante el API de Gremlin, que permite trabajar con nodos y aristas.",
+      "category": "lastest"
+    },
+    {
+      "id": 85,
+      "text": "What are three characteristics of an Online Transaction Processing (OLTP) workload?",
+      "is_multi": true,
+      "options": [
+        "Denormalized data",
+        "Heavy writes and moderate reads",
+        "Light writes and heavy reads",
+        "Schema on write",
+        "Schema on read",
+        "Normalized data"
+      ],
+      "answers": [
+        1,
+        3,
+        5
+      ],
+      "explanation": "Los sistemas OLTP suelen manejar escrituras intensivas, emplean schema on write para validar datos al insertarlos y utilizan datos normalizados para reducir redundancia y asegurar integridad.",
+      "category": "lastest"
+    },
+    {
+      "id": 86,
+      "text": "Which two activities can be performed entirely using the Microsoft Power BI service without using Power BI Desktop?",
+      "is_multi": true,
+      "options": [
+        "A report and dashboard creation",
+        "Report sharing and distribution",
+        "Data modeling",
+        "Data acquisition and preparation"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "explanation": "El servicio de Power BI permite crear reportes y dashboards directamente en línea, así como compartirlos. El modelado y la preparación avanzada de datos requieren Power BI Desktop.",
+      "category": "lastest"
+    },
+    {
+      "id": 87,
+      "type": "hotspot_yes_no",
+      "text": "Select Yes if the statement is true; otherwise, select No.",
+      "statements": [
+        {
+          "text": "Processing salary payments once a month is an example of a batch workload.",
+          "answer": true
+        },
+        {
+          "text": "A wind turbine sends 50 sensor reading per second is streaming workload.",
+          "answer": true
+        },
+        {
+          "text": "A home electricity meter that sends readings once a day to an energy provider is an example of streaming workload.",
+          "answer": false
+        }
+      ],
+      "explanation": "Los pagos mensuales son un proceso por lotes. El envío continuo de lecturas por segundo es streaming. Un medidor que envía datos una vez al día no es streaming.",
+      "category": "lastest"
+    },
+    {
+      "id": 88,
+      "text": "Your company is designing a database that will contain session data for a website. The data will include notifications, personalization attributes, and products added to a shopping cart. Which type of data store will provide the lowest latency to retrieve the data?",
+      "options": [
+        "Graph",
+        "Key/value",
+        "Document",
+        "Columnar"
+      ],
+      "answer": 1,
+      "explanation": "Los data stores de tipo key/value ofrecen latencias extremadamente bajas para lecturas rápidas de datos simples como sesiones, carritos de compra y atributos de personalización.",
+      "category": "lastest"
+    },
+    {
+      "id": 89,
+      "text": "Which statement describes a batch workload?",
+      "options": [
+        "process data in memory, row-by-row",
+        "collect and process data at most once a day",
+        "process data as new data is received in near real-time",
+        "collect data and then process the data when a condition is met"
+      ],
+      "answer": 3,
+      "explanation": "Un trabajo por lotes acumula datos primero y luego los procesa cuando se cumple una condición o en un intervalo específico. No opera en tiempo real.",
+      "category": "lastest"
+    },
+    {
+      "id": 90,
+      "text": "Your company needs to design a database that shows how changes in network traffic in one area of a network affect network traffic in other areas of the network. Which type of data store should you use?",
+      "options": [
+        "Graph",
+        "Key/value",
+        "Document",
+        "Columnar"
+      ],
+      "answer": 0,
+      "explanation": "Los data stores de grafos son ideales para modelar relaciones y dependencias entre nodos, como el tráfico entre distintas áreas de una red.",
+      "category": "lastest"
+    },
+    {
+      "id": 91,
+      "text": "What is the primary purpose of a data warehouse?",
+      "options": [
+        "to provide answers to complex queries that rely on data from multiple sources",
+        "to provide transformation services between source and target data stores",
+        "to provide read-only storage of relational and non-relational historical data",
+        "to provide storage for transactional line-of-business (LOB) applications"
+      ],
+      "answer": 0,
+      "explanation": "Un data warehouse está diseñado para responder consultas complejas que combinan datos de múltiples orígenes mediante modelos analíticos optimizados.",
+      "category": "lastest"
+    },
+    {
+      "id": 92,
+      "text": "You manage an application that stores data in a shared folder on a Windows server. You need to move the shared folder to Azure Storage. Which type of Azure Storage should you use?",
+      "options": [
+        "queue",
+        "blob",
+        "file",
+        "table"
+      ],
+      "answer": 2,
+      "explanation": "Azure Files provee un sistema de archivos SMB totalmente administrado, ideal para migrar carpetas compartidas de Windows a la nube.",
+      "category": "lastest"
+    },
+    {
+      "id": 93,
+      "text": "You need to recommend a data store service that meets the following requirements: Native SQL API access and configurable indexes. What should you recommend?",
+      "options": [
+        "Azure Files",
+        "Azure Blob storage",
+        "Azure Table storage",
+        "Azure Cosmos DB"
+      ],
+      "answer": 3,
+      "explanation": "Azure Cosmos DB ofrece acceso mediante un API SQL y permite configurar índices de manera granular para optimizar consultas.",
+      "category": "lastest"
+    },
+    {
+      "id": 94,
+      "text": "You have an application that runs on Windows and requires access to a mapped drive. Which Azure service should you use?",
+      "options": [
+        "Azure Files",
+        "Azure Blob storage",
+        "Azure Cosmos DB",
+        "Azure Table storage"
+      ],
+      "answer": 0,
+      "explanation": "Azure Files permite montar un recurso compartido SMB como una unidad de red en Windows, lo cual lo vuelve la opción correcta para mapped drives.",
+      "category": "lastest"
+    },
+    {
+      "id": 95,
+      "text": "When provisioning an Azure Cosmos DB account, which feature provides redundancy within an Azure region?",
+      "options": [
+        "multi-master replication",
+        "Availability Zones",
+        "the strong consistency level",
+        "automatic failover"
+      ],
+      "answer": 1,
+      "explanation": "Las Availability Zones permiten redundancia dentro de una misma región Azure, distribuyendo los recursos en zonas físicamente separadas.",
+      "category": "lastest"
+    },
+    {
+      "id": 96,
+      "text": "You need to gather real-time telemetry data from a mobile application. Which type of workload describes this scenario?",
+      "options": [
+        "Online Transaction Processing (OLTP)",
+        "batch",
+        "massively parallel processing (MPP)",
+        "streaming"
+      ],
+      "answer": 3,
+      "explanation": "La telemetría en tiempo real se procesa como un flujo continuo de datos, por lo que corresponde a un workload de streaming.",
+      "category": "lastest"
+    },
+    {
+      "id": 97,
+      "text": "What is a benefit of the Azure Cosmos DB Table API as compared to Azure Table storage?",
+      "options": [
+        "provides resiliency if an Azure region fails",
+        "supports partitioning",
+        "provides a higher storage capacity",
+        "supports a multi-master model"
+      ],
+      "answer": 3,
+      "explanation": "El API Table en Cosmos DB soporta un modelo multi-master que permite escrituras en múltiples regiones, algo no disponible en Azure Table Storage.",
+      "category": "lastest"
+    },
+    {
+      "id": 98,
+      "text": "You need to store data by using Azure Table storage. What should you create first?",
+      "options": [
+        "an Azure Cosmos DB instance",
+        "a storage account",
+        "a blob container",
+        "a table"
+      ],
+      "answer": 1,
+      "explanation": "Azure Table Storage requiere primero un Storage Account. Dentro de este se pueden crear las tablas.",
+      "category": "lastest"
+    },
+    {
+      "id": 99,
+      "text": "Which Azure Data Factory component initiates the execution of a pipeline?",
+      "options": [
+        "a control flow",
+        "a trigger",
+        "a parameter",
+        "an activity"
+      ],
+      "answer": 1,
+      "explanation": "En Azure Data Factory, un trigger es el componente responsable de iniciar la ejecución de un pipeline según un evento o un horario.",
+      "category": "lastest"
+    },
+    {
+      "id": 100,
+      "type": "hotspot_yes_no",
+      "text": "Select Yes if the statement is true; otherwise, select No.",
+      "statements": [
+        {
+          "text": "Azure SQL Database includes a fully managed backup service.",
+          "answer": true
+        },
+        {
+          "text": "Azure SQL Database has built-in high availability.",
+          "answer": true
+        },
+        {
+          "text": "Azure SQL Database can use Azure Advanced Threat Protection (ATP).",
+          "answer": true
+        }
+      ],
+      "explanation": "Azure SQL Database ofrece backups automáticos, alta disponibilidad integrada y compatibilidad con Advanced Threat Protection como parte de sus servicios administrados.",
+      "category": "lastest"
+    },
+    {
+      "id": 101,
+      "text": "Which three requirements must be met to query a table named Products in an Azure SQL database from the internet?",
+      "is_multi": true,
+      "options": [
+        "You must be assigned the Reader role for the resource group that contains the database.",
+        "You must have SELECT access to the Products table.",
+        "You must have a user in the database.",
+        "You must be assigned the Contributor role for the resource group that contains the database.",
+        "Your IP address must be allowed to connect to the database."
+      ],
+      "answers": [
+        1,
+        2,
+        4
+      ],
+      "explanation": "Para consultar una base de datos Azure SQL desde Internet necesitas: permisos SELECT en la tabla, un usuario creado dentro de la base de datos y que tu dirección IP esté permitida en el firewall del servidor. Los roles RBAC como Reader o Contributor no otorgan acceso directo a la base de datos.",
+      "category": "lastest"
+    },
+    {
+      "id": 102,
+      "text": "You need to ensure that users use multi-factor authentication (MFA) when connecting to an Azure SQL database. Which type of authentication should you use?",
+      "options": [
+        "service principal authentication",
+        "Azure Active Directory (Azure AD) authentication",
+        "SQL authentication",
+        "certificate authentication"
+      ],
+      "answer": 1,
+      "explanation": "Solo Azure AD authentication permite habilitar MFA para conexiones a Azure SQL Database.",
+      "category": "lastest"
+    },
+    {
+      "id": 103,
+      "text": "You need to design and model a database by using a graphical tool that supports project-oriented offline database development. What should you use?",
+      "options": [
+        "Microsoft SQL Server Data Tools (SSDT)",
+        "Microsoft SQL Server Management Studio (SSMS)",
+        "Azure Databricks",
+        "Azure Data Studio"
+      ],
+      "answer": 0,
+      "explanation": "SSDT permite modelado, diseño y desarrollo de bases de datos de manera offline usando un enfoque basado en proyectos.",
+      "category": "lastest"
+    },
+    {
+      "id": 104,
+      "text": "You have a transactional application that stores data in an Azure SQL managed instance. When should you implement a read-only database replica?",
+      "options": [
+        "You need to generate reports without affecting the transactional workload.",
+        "You need to audit the transactional application.",
+        "You need to implement high availability in the event of a regional outage.",
+        "You need to improve the recovery point objective (RPO)."
+      ],
+      "answer": 0,
+      "explanation": "Las réplicas de solo lectura permiten ejecutar reportes o cargas analíticas sin impactar el rendimiento del sistema transaccional.",
+      "category": "lastest"
+    },
+    {
+      "id": 105,
+      "text": "Transparent Data Encryption (TDE) encrypts:",
+      "options": [
+        "a column to protect data at rest and in transit",
+        "queries and their results in order to protect data in transit",
+        "the database to protect data at rest",
+        "the server to protect data at rest"
+      ],
+      "answer": 2,
+      "explanation": "TDE cifra la base de datos completa para proteger los datos en reposo. No cifra columnas ni datos en tránsito.",
+      "category": "lastest"
+    },
+    {
+      "id": 107,
+      "text": "Which type of database natively supports the analysis of relationships between entities?",
+      "options": [
+        "Column family databases",
+        "Document databases",
+        "Graph databases",
+        "Key-value stores"
+      ],
+      "answer": 2,
+      "explanation": "Las bases de datos de grafos están diseñadas para modelar y consultar relaciones entre entidades mediante nodos y aristas.",
+      "category": "lastest"
+    },
+    {
+      "id": 108,
+      "text": "You need to develop a solution to provide data to executives. The solution must provide an interactive graphical interface, depict KPIs, and support drill-down. What should you use in Power BI?",
+      "options": [
+        "a dashboard",
+        "a report",
+        "a dataset",
+        "a dataflow"
+      ],
+      "answer": 1,
+      "explanation": "Los reportes de Power BI permiten visualizaciones interactivas, KPIs y navegación mediante drill-down.",
+      "category": "Power BI"
+    },
+    {
+      "id": 109,
+      "text": "Which three objects can be added to a Microsoft Power BI dashboard?",
+      "is_multi": true,
+      "options": [
+        "a report page",
+        "a dataset",
+        "a visualization from a report",
+        "a Power BI Desktop file",
+        "a text box"
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "explanation": "Los dashboards aceptan report pages ancladas, visuales individuales y elementos como cajas de texto.",
+      "category": "Power BI"
+    },
+    {
+      "id": 110,
+      "type": "hotspot_yes_no",
+      "text": "Evaluate the following statements about Power BI workspaces and dashboards. Select Yes if the statement is true; otherwise, select No.",
+      "statements": [
+        {
+          "text": "Dashboards can include visuals from multiple reports.",
+          "answer": true
+        },
+        {
+          "text": "Datasets can be shared across multiple workspaces.",
+          "answer": false
+        }
+      ],
+      "explanation": "Los dashboards sí pueden tener visuales de distintos reportes, pero un dataset solo puede estar en un workspace a la vez.",
+      "category": "Power BI"
+    },
+    {
+      "id": 111,
+      "text": "What should you use to build a Microsoft Power BI paginated report?",
+      "options": [
+        "Power BI Desktop",
+        "Power BI mobile app",
+        "Power BI Service",
+        "Power BI Report Builder"
+      ],
+      "answer": 3,
+      "explanation": "Los reportes paginados solo pueden crearse con Power BI Report Builder.",
+      "category": "Power BI"
+    },
+    {
+      "id": 112,
+      "text": "What is a Power BI dashboard?",
+      "options": [
+        "A multi-page, highly interactive report",
+        "A single-page canvas for monitoring data through pinned visuals",
+        "A tool used to model datasets",
+        "A workspace for storing datasets and reports"
+      ],
+      "answer": 1,
+      "explanation": "Un dashboard de Power BI es una página única (canvas) compuesta por visuales anclados para monitorear KPIs.",
+      "category": "Power BI"
+    },
+    {
+      "id": 113,
+      "text": "Which property of a transactional workload guarantees that each transaction is treated as a single unit that either succeeds completely or fails completely?",
+      "options": [
+        "consistency",
+        "isolation",
+        "atomicity",
+        "durability"
+      ],
+      "answer": 2,
+      "explanation": "La atomicidad garantiza que una transacción se ejecute como una unidad indivisible: o se completa totalmente o se revierte por completo.",
+      "category": "ACID"
+    },
+    {
+      "id": 114,
+      "text": "Which database transaction property ensures that transactional changes to a database are preserved during unexpected operating system restarts?",
+      "options": [
+        "atomicity",
+        "consistency",
+        "durability",
+        "isolation"
+      ],
+      "answer": 2,
+      "explanation": "La durabilidad asegura que los cambios confirmados persistan incluso ante fallas del sistema o reinicios inesperados.",
+      "category": "ACID"
+    },
+    {
+      "id": 115,
+      "text": "A bank needs to ensure that after an account transfer transaction completes, the revised account balances persist even if the database system becomes temporarily unavailable. Of which ACID semantic is this an example?",
+      "options": [
+        "atomicity",
+        "consistency",
+        "isolation",
+        "durability"
+      ],
+      "answer": 3,
+      "explanation": "El escenario describe la necesidad de que los cambios permanezcan incluso si el sistema falla, lo cual corresponde al principio de durabilidad.",
+      "category": "ACID"
+    },
+    {
+      "id": 116,
+      "question": "You need to develop a solution to provide data to executives. The solution must provide an interactive graphical interface, depict various key performance indicators, and support data exploration by using drill down. What should you use in Microsoft Power BI?",
+      "options": [
+        "a view",
+        "a report",
+        "a dataflow",
+        "Microsoft Power Apps"
+      ],
+      "correct_answer": "a report",
+      "category": "Power BI"
+    },
+    {
+      "id": 117,
+      "question": "Which three objects can be added to a Microsoft Power BI dashboard?",
+      "options": [
+        "a report page",
+        "a Microsoft PowerPoint slide",
+        "a visualization from a report",
+        "a dataflow",
+        "a text box"
+      ],
+      "correct_answer": [
+        "a report page",
+        "a visualization from a report",
+        "a text box"
+      ],
+      "category": "Power BI"
+    },
+    {
+      "id": 118,
+      "question": "What should you use to build a Microsoft Power BI paginated report?",
+      "options": [
+        "Charticulator",
+        "Power BI Desktop",
+        "the Power BI service",
+        "Power BI Report Builder"
+      ],
+      "correct_answer": "Power BI Report Builder",
+      "category": "Power BI"
     }
   ]
 }
