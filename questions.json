@@ -1658,19 +1658,20 @@
     },
     {
       "id": 116,
-      "question": "You need to develop a solution to provide data to executives. The solution must provide an interactive graphical interface, depict various key performance indicators, and support data exploration by using drill down. What should you use in Microsoft Power BI?",
+      "text": "You need to develop a solution to provide data to executives. The solution must provide an interactive graphical interface, depict various key performance indicators, and support data exploration by using drill down. What should you use in Microsoft Power BI?",
       "options": [
         "a view",
         "a report",
         "a dataflow",
         "Microsoft Power Apps"
       ],
-      "correct_answer": "a report",
+      "answer": 1,
+      "explanation": "Los reportes de Power BI permiten visualizaciones interactivas, mostrar KPIs y habilitar funciones como drill-down, drilling y filtros, lo cual los hace la herramienta adecuada para análisis ejecutivo.",
       "category": "Power BI"
     },
     {
       "id": 117,
-      "question": "Which three objects can be added to a Microsoft Power BI dashboard?",
+      "text": "Which three objects can be added to a Microsoft Power BI dashboard?",
       "options": [
         "a report page",
         "a Microsoft PowerPoint slide",
@@ -1678,23 +1679,25 @@
         "a dataflow",
         "a text box"
       ],
-      "correct_answer": [
-        "a report page",
-        "a visualization from a report",
-        "a text box"
+      "answer": [
+        0,
+        2,
+        4
       ],
+      "explanation": "Los dashboards de Power BI permiten anclar páginas completas de reportes, visualizaciones individuales provenientes de reportes y elementos nativos como cuadros de texto para anotaciones o KPIs. No es posible anclar presentaciones de PowerPoint ni dataflows.",
       "category": "Power BI"
     },
     {
       "id": 118,
-      "question": "What should you use to build a Microsoft Power BI paginated report?",
+      "text": "What should you use to build a Microsoft Power BI paginated report?",
       "options": [
         "Charticulator",
         "Power BI Desktop",
         "the Power BI service",
         "Power BI Report Builder"
       ],
-      "correct_answer": "Power BI Report Builder",
+      "answer": 3,
+      "explanation": "Los reportes paginados de Power BI requieren Power BI Report Builder, que es la herramienta especializada para crear documentos estilo SQL Server Reporting Services (SSRS) con formato fijo y diseñado para impresión o exportación.",
       "category": "Power BI"
     }
   ]
