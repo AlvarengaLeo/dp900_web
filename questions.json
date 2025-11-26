@@ -1568,6 +1568,97 @@
       ],
       "explanation": "En Azure Cosmos DB, a nivel de contenedor puedes configurar: (1) la partition key, que determina cómo se distribuyen los datos, y (2) el throughput (RU/s), que puede ser dedicado por contenedor o compartido a nivel de base de datos. La read region y el API se configuran a nivel de cuenta, no de contenedor.",
       "category": "lastest"
+    },
+    {
+      "id": 127,
+      "text": "Which job role is responsible for managing data privacy, monitoring data stores, and monitoring data pipelines?",
+      "options": [
+        "database user",
+        "data engineer",
+        "database administrator",
+        "data analyst"
+      ],
+      "answer": 1,
+      "explanation": "El data engineer es responsable de gestionar la privacidad de los datos, monitorear los almacenes de datos y supervisar los pipelines de datos. Este rol se enfoca en la arquitectura, construcción y mantenimiento de la infraestructura de datos de la organización, asegurando que los datos fluyan de manera segura y eficiente.",
+      "category": "Job Roles"
+    },
+    {
+      "id": 128,
+      "text": "Which job role is responsible for database backup and recovery?",
+      "options": [
+        "Data engineer",
+        "Data analyst",
+        "Database administrator",
+        "Database user"
+      ],
+      "answer": 2,
+      "explanation": "El database administrator (DBA) es responsable de las operaciones de backup y recuperación de bases de datos. Este rol se enfoca en mantener la disponibilidad, integridad y seguridad de las bases de datos, incluyendo la implementación de estrategias de respaldo y planes de recuperación ante desastres.",
+      "category": "Job Roles"
+    },
+    {
+      "id": 129,
+      "text": "Which job role is responsible for enabling advanced analytic capabilities through reports?",
+      "options": [
+        "Data engineer",
+        "Data analyst",
+        "Database administrator",
+        "Database user"
+      ],
+      "answer": 1,
+      "explanation": "El data analyst es responsable de habilitar capacidades analíticas avanzadas mediante la creación de reportes e informes. Este rol se especializa en explorar, analizar y visualizar datos para generar insights de negocio, utilizando herramientas como Power BI, Tableau o Excel.",
+      "category": "Job Roles"
+    },
+    {
+      "id": 130,
+      "text": "Which job role is responsible for monitoring data pipelines?",
+      "options": [
+        "Data engineer",
+        "Data analyst",
+        "Database administrator",
+        "Database user"
+      ],
+      "answer": 0,
+      "explanation": "El data engineer es responsable de monitorear los pipelines de datos. Este rol diseña, construye y mantiene la infraestructura de procesamiento de datos, asegurando que los flujos de datos funcionen correctamente, sean eficientes y cumplan con los requisitos de negocio.",
+      "category": "Job Roles"
+    },
+    {
+      "id": 131,
+      "text": "Which job role is responsible for creating a pipeline to transfer data from a database to a data warehouse?",
+      "options": [
+        "Data engineer",
+        "Data architect",
+        "Data analyst",
+        "Database administrator"
+      ],
+      "answer": 0,
+      "explanation": "El data engineer es responsable de crear pipelines (flujos de datos) que transfieren información desde bases de datos operacionales hacia data warehouses. Este rol construye y mantiene la infraestructura ETL/ELT que permite mover, transformar y cargar datos de manera automatizada y eficiente.",
+      "category": "Job Roles"
+    },
+    {
+      "id": 132,
+      "text": "Which job role is responsible for creating a transactional database?",
+      "options": [
+        "Data engineer",
+        "Data architect",
+        "Data analyst",
+        "Database administrator"
+      ],
+      "answer": 1,
+      "explanation": "El data architect es responsable de diseñar y crear bases de datos transaccionales. Este rol define la arquitectura de datos de la organización, diseña esquemas, modelos de datos y estructura de bases de datos que soporten las operaciones del negocio de manera eficiente y escalable.",
+      "category": "Job Roles"
+    },
+    {
+      "id": 133,
+      "text": "Which job role is responsible for creating a chart that shows sales transactions by week?",
+      "options": [
+        "Data engineer",
+        "Data architect",
+        "Data analyst",
+        "Database administrator"
+      ],
+      "answer": 2,
+      "explanation": "El data analyst es responsable de crear visualizaciones como gráficos que muestren transacciones de ventas por semana. Este rol transforma datos en insights visuales comprensibles mediante dashboards y reportes que ayudan a la toma de decisiones de negocio.",
+      "category": "Job Roles"
     }
   ]
 }
